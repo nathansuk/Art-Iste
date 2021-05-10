@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Mes Artisans Beautés :  {{ controller_name }}{% endblock %}
+{% block title %}{{ site_name }} :  {{ controller_name }}{% endblock %}
 
 {% block body %}
 
@@ -8,7 +8,7 @@
         <div class="page-top--leftimage"></div>
         <div class="page-top--content">
             <h1>Découvrez les artisans proches de chez-vous</h1>
-            <span>Chacun a son savoir faire, sur Mes artisans Beauté vous trouverez celui qui vous correspond</span>
+            <span>Chacun a son savoir faire, sur {{ site_name }} vous trouverez celui qui vous correspond</span>
             <form class="bdr-10">
                 <select name="pets" id="pet-select">
                     <option value="">Catégorie</option>

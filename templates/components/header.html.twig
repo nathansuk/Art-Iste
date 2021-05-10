@@ -2,14 +2,20 @@
 
     <header>
 
-        <img src="assets/images/logo-mab.jpeg" alt="Mes artisans beauté logo" onclick="location.href= '/'">
+        <img src="https://www.art-iste.com/wp-content/uploads/2020/04/150x150_noir-300x52.png" class="logo" alt="Mes artisans beauté logo" onclick="location.href= '/'">
         <nav>
         <a href="#">Rechercher un artisan</a>
         <a href="#">Professionnels</a>
         </nav>
         <div class="user-space">
-            <a href="#"><i class="fi-rr-user-add"></i>S'inscrire</a>
-            <a href="#"><i class="fi-rr-user"></i>Se connecter</a>
+            {% if app.user %}
+                <a href="#"><i class="fi-rr-user-add"></i>Mes favoris</a>
+                <a href="#"><i class="fi-rr-user"></i>{{ app.user.firstName }}</a>
+
+                {% else %}
+                    <a href="{{ path('register') }}"><i class="fi-rr-user-add"></i>S'inscrire</a>
+                    <a href="{{ path('app_login') }}"><i class="fi-rr-user"></i>Se connecter</a>
+            {% endif %}
         </div>
 
 

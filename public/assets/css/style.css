@@ -10,6 +10,12 @@ header {
   border-bottom: 2px solid lightgray;
   justify-content: space-around;
 }
+header .logo {
+  width: 200px;
+  height: 30px;
+  position: relative;
+  top: 30%;
+}
 header img {
   margin-right: 10px;
 }
