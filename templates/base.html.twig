@@ -2,7 +2,9 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+        <link href="assets/uicons/css/uicons-regular-rounded.css" rel="stylesheet">
+        <title>{% block title %}Mes Artisans Beautés{% endblock %}</title>
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
         {% block stylesheets %}
@@ -13,7 +15,14 @@
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
     </head>
+
+    {{ block('header', "components/header.html.twig") }}
+
     <body>
+
+        <div class="container">
         {% block body %}{% endblock %}
+        </div>
+
     </body>
 </html>

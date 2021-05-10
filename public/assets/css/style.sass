@@ -1,0 +1,305 @@
+@use "components/header/header"
+@use "components/vars"
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&display=swap')
+
+*
+  font-family: 'Montserrat', sans-serif
+
+body
+  margin: 0
+  padding: 0
+
+input
+  &:focus
+    outline: none
+
+a
+  text-decoration: none
+
+h1
+  font-weight: 500
+
+h1, h2, h3, h4
+  margin-top: 0
+  margin-bottom: 10px
+
+p
+  margin: 0
+
+button
+  font-weight: 600
+  border: none
+  &:hover
+    cursor: pointer
+
+.w-100
+  width: 100%
+
+.container
+  display: flex
+  flex-direction: column
+
+.page-top
+  width: 100%
+  height: 500px
+  background-color: #3498db
+  color: white
+  overflow: hidden
+
+  .page-top--content
+    width: 70%
+    margin: auto
+    position: relative
+    top: 30%
+
+
+    form
+      display: flex
+      align-items: center
+      width: 700px
+      margin-top: 15px
+      background-color: white
+      height: 80px
+      padding-left: 10px
+      padding-right: 10px
+      justify-content: space-around
+
+      select
+        padding: 0 20px 0 20px
+        height: 40px
+        border: none
+        border-bottom: 1px solid lightgray
+
+      input
+        width: 300px
+        height: 40px
+        border: none
+        border-bottom: 1px solid lightgray
+
+      button
+        padding: 0 20px 0 20px
+        height: 40px
+
+.page-top--leftimage
+  width: 30%
+  height: 100%
+  border-radius: 0 0 0 100%
+  background-image: url("https://www.netpme.fr/wp-content/uploads/2020/02/Entreprendre-dans-l%E2%80%99artisanat-faire-de-sa-passion-son-m%C3%A9tier-artisanat-artisans-netpme.fr_.jpg")
+  background-size: cover
+  position: relative
+  float: right
+
+.page-top--boxinfo
+  width: 70%
+  height: 100px
+  margin: auto
+  background-color: #224f69
+  position: relative
+  top: -50px
+  display: flex
+  align-items: center
+
+  &--content
+    color: white
+    font-weight: 600
+    display: flex
+    justify-content: space-around
+    width: 90%
+    margin: auto
+    position: relative
+    top: auto
+    bottom: auto
+
+    span
+      text-align: center
+      display: flex
+      flex-direction: column
+      i
+        font-size: 30px
+    hr
+      height: 50px
+
+.page-content
+  width: 70%
+  display: flex
+  flex-direction: column
+  margin: auto
+
+.home-artisans-list
+  display: flex
+  flex-direction: row
+  flex-flow: row wrap
+  justify-content: space-between
+
+  .artisans-box
+    width: 310px
+    height: 400px
+    box-shadow: 0px 4px 16px rgb(0 0 0 / 10%)
+    margin-bottom: 20px
+
+    h3
+      font-weight: 600
+
+    .artisans-box-pic
+      background-image: url("https://www.artisandubatiment.fr/wp-content/uploads/2017/10/site-internet-artisan.jpg")
+      background-size: cover
+      border-radius: 10px
+      width: 100%
+      height: 250px
+
+    .artisan-box--desc
+      width: 90%
+      margin: auto
+      display: flex
+      flex-direction: column
+
+      .city
+        color: #d4d4d4
+
+
+.artisan-box-content
+  margin: auto
+
+
+  .rounded-box-info
+    display: flex
+    align-items: center
+    align-content: center
+    border-radius: 10px
+    position: relative
+    top: -20px
+    color: white
+    height: 40px
+    box-shadow: 0px 4px 16px rgb(0 0 0 / 10%)
+    margin-left: 10px
+    font-weight: 600
+    i
+      margin-right: 10px
+
+    span
+      margin: auto
+
+.popular
+  width: 150px
+  background: rgb(226, 37, 83)
+
+.premium
+  width: 80px
+  background: rgb(4, 108, 222)
+
+
+.infos-solutions
+  margin-top: 30px
+
+.solutions-content
+  height: 150px
+  display: flex
+  flex-direction: row
+  background-color: #3498db
+  color: white
+  box-sizing: border-box
+  padding-left: 30px
+  padding-right: 30px
+  margin-bottom: 15px
+
+  .solutions-content--infos
+    position: relative
+    top: 10px
+
+  i
+    position: relative
+    top: 30%
+    text-align: center
+    font-size: 80px
+    width: 200px
+
+  hr
+    margin-left: 20px
+    margin-right: 20px
+    opacity: 0.5
+
+  button
+    border: 2px solid white
+    background: none
+    color: white
+    font-weight: 800
+    margin-top: 10px
+    width: 300px
+    height: 30px
+
+.monitor-numbers
+  z-index: 2
+  width: 80%
+  height: 150px
+  margin: auto
+  position: relative
+  top: 60px
+  background-color: #ffd32a
+
+  &--content
+    position: relative
+    top: 30%
+    color: white
+    margin: auto
+    display: flex
+    flex-direction: row
+    justify-content: space-around
+
+    .stats
+      text-align: center
+      h1
+        font-weight: 800
+
+    hr
+      background-color: white
+      border: 3px solid white
+      margin: 0 20px 0 20px
+
+
+.biginfo--content
+  width: 80%
+  margin-top: 100px
+  margin-left: auto
+  margin-right: auto
+  display: flex
+  flex-direction: row
+  justify-content: space-around
+
+  h1
+    font-weight: 600
+
+  span
+    margin-bottom: 30px
+
+  img
+    width: 500px
+    height: 500px
+
+  .buginfo--content-right
+    width: 600px
+    height: 300px
+    background-color: #5cb4ff
+    padding: 50px
+    box-sizing: border-box
+
+  .form-content
+    display: flex
+    flex-direction: row
+
+    input
+      width: 400px
+      height: 50px
+      border: none
+      padding-left: 15px
+      font-size: 15px
+      margin-top: 30px
+
+    button
+      width: 100px
+      margin-left: 10px
+      height: 50px
+      border: none
+      border-radius: 10px
+      background-color: #0f65ef
+      color: white
+      margin-top: 30px

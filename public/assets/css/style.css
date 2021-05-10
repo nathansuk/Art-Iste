@@ -1,0 +1,382 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;800&display=swap");
+header {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 80px;
+  padding-left: 20px;
+  padding-right: 20px;
+  box-sizing: border-box;
+  border-bottom: 2px solid lightgray;
+  justify-content: space-around;
+}
+header img {
+  margin-right: 10px;
+}
+header img:hover {
+  cursor: pointer;
+}
+header button {
+  position: relative;
+  top: 15px;
+  height: 50px;
+  width: 200px;
+  background-color: #3498db;
+  color: white;
+}
+
+nav {
+  position: relative;
+  top: 40%;
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+  color: black;
+  font-weight: 600;
+}
+
+.user-space {
+  font-weight: 600;
+  position: relative;
+  display: flex;
+  top: 40%;
+  width: 300px;
+  justify-content: space-between;
+}
+.user-space a {
+  color: black;
+}
+.user-space a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-decoration-color: #224f69;
+}
+
+.bdr-10 {
+  border-radius: 10px;
+}
+
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+input:focus {
+  outline: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-weight: 500;
+}
+
+h1, h2, h3, h4 {
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+p {
+  margin: 0;
+}
+
+button {
+  font-weight: 600;
+  border: none;
+}
+button:hover {
+  cursor: pointer;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-top {
+  width: 100%;
+  height: 500px;
+  background-color: #3498db;
+  color: white;
+  overflow: hidden;
+}
+.page-top .page-top--content {
+  width: 70%;
+  margin: auto;
+  position: relative;
+  top: 30%;
+}
+.page-top .page-top--content form {
+  display: flex;
+  align-items: center;
+  width: 700px;
+  margin-top: 15px;
+  background-color: white;
+  height: 80px;
+  padding-left: 10px;
+  padding-right: 10px;
+  justify-content: space-around;
+}
+.page-top .page-top--content form select {
+  padding: 0 20px 0 20px;
+  height: 40px;
+  border: none;
+  border-bottom: 1px solid lightgray;
+}
+.page-top .page-top--content form input {
+  width: 300px;
+  height: 40px;
+  border: none;
+  border-bottom: 1px solid lightgray;
+}
+.page-top .page-top--content form button {
+  padding: 0 20px 0 20px;
+  height: 40px;
+}
+
+.page-top--leftimage {
+  width: 30%;
+  height: 100%;
+  border-radius: 0 0 0 100%;
+  background-image: url("https://www.netpme.fr/wp-content/uploads/2020/02/Entreprendre-dans-l%E2%80%99artisanat-faire-de-sa-passion-son-m%C3%A9tier-artisanat-artisans-netpme.fr_.jpg");
+  background-size: cover;
+  position: relative;
+  float: right;
+}
+
+.page-top--boxinfo {
+  width: 70%;
+  height: 100px;
+  margin: auto;
+  background-color: #224f69;
+  position: relative;
+  top: -50px;
+  display: flex;
+  align-items: center;
+}
+.page-top--boxinfo--content {
+  color: white;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+  margin: auto;
+  position: relative;
+  top: auto;
+  bottom: auto;
+}
+.page-top--boxinfo--content span {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.page-top--boxinfo--content span i {
+  font-size: 30px;
+}
+.page-top--boxinfo--content hr {
+  height: 50px;
+}
+
+.page-content {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.home-artisans-list {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+.home-artisans-list .artisans-box {
+  width: 310px;
+  height: 400px;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+.home-artisans-list .artisans-box h3 {
+  font-weight: 600;
+}
+.home-artisans-list .artisans-box .artisans-box-pic {
+  background-image: url("https://www.artisandubatiment.fr/wp-content/uploads/2017/10/site-internet-artisan.jpg");
+  background-size: cover;
+  border-radius: 10px;
+  width: 100%;
+  height: 250px;
+}
+.home-artisans-list .artisans-box .artisan-box--desc {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+.home-artisans-list .artisans-box .artisan-box--desc .city {
+  color: #d4d4d4;
+}
+
+.artisan-box-content {
+  margin: auto;
+}
+.artisan-box-content .rounded-box-info {
+  display: flex;
+  align-items: center;
+  align-content: center;
+  border-radius: 10px;
+  position: relative;
+  top: -20px;
+  color: white;
+  height: 40px;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.1);
+  margin-left: 10px;
+  font-weight: 600;
+}
+.artisan-box-content .rounded-box-info i {
+  margin-right: 10px;
+}
+.artisan-box-content .rounded-box-info span {
+  margin: auto;
+}
+
+.popular {
+  width: 150px;
+  background: #e22553;
+}
+
+.premium {
+  width: 80px;
+  background: #046cde;
+}
+
+.infos-solutions {
+  margin-top: 30px;
+}
+
+.solutions-content {
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  background-color: #3498db;
+  color: white;
+  box-sizing: border-box;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin-bottom: 15px;
+}
+.solutions-content .solutions-content--infos {
+  position: relative;
+  top: 10px;
+}
+.solutions-content i {
+  position: relative;
+  top: 30%;
+  text-align: center;
+  font-size: 80px;
+  width: 200px;
+}
+.solutions-content hr {
+  margin-left: 20px;
+  margin-right: 20px;
+  opacity: 0.5;
+}
+.solutions-content button {
+  border: 2px solid white;
+  background: none;
+  color: white;
+  font-weight: 800;
+  margin-top: 10px;
+  width: 300px;
+  height: 30px;
+}
+
+.monitor-numbers {
+  z-index: 2;
+  width: 80%;
+  height: 150px;
+  margin: auto;
+  position: relative;
+  top: 60px;
+  background-color: #ffd32a;
+}
+.monitor-numbers--content {
+  position: relative;
+  top: 30%;
+  color: white;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.monitor-numbers--content .stats {
+  text-align: center;
+}
+.monitor-numbers--content .stats h1 {
+  font-weight: 800;
+}
+.monitor-numbers--content hr {
+  background-color: white;
+  border: 3px solid white;
+  margin: 0 20px 0 20px;
+}
+
+.biginfo--content {
+  width: 80%;
+  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.biginfo--content h1 {
+  font-weight: 600;
+}
+.biginfo--content span {
+  margin-bottom: 30px;
+}
+.biginfo--content img {
+  width: 500px;
+  height: 500px;
+}
+.biginfo--content .buginfo--content-right {
+  width: 600px;
+  height: 300px;
+  background-color: #5cb4ff;
+  padding: 50px;
+  box-sizing: border-box;
+}
+.biginfo--content .form-content {
+  display: flex;
+  flex-direction: row;
+}
+.biginfo--content .form-content input {
+  width: 400px;
+  height: 50px;
+  border: none;
+  padding-left: 15px;
+  font-size: 15px;
+  margin-top: 30px;
+}
+.biginfo--content .form-content button {
+  width: 100px;
+  margin-left: 10px;
+  height: 50px;
+  border: none;
+  border-radius: 10px;
+  background-color: #0f65ef;
+  color: white;
+  margin-top: 30px;
+}
+
+/*# sourceMappingURL=style.css.map */
