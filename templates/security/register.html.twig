@@ -5,11 +5,29 @@
 
 {% block body %}
 
-    <div>
-    {{ form_start(registerForm) }}
-    {{ form_widget(registerForm) }}
-        <button type="submit">S'inscrire</button>
-    {{ form_end(registerForm) }}
+    <style>
+        header{
+            display: none;
+        }
+    </style>
+
+    <div class="login-container">
+
+        <div class="login-container--leftimage">
+            <a href="{{ path('home') }}">< Retourner sur le site</a>
+        </div>
+
+        <div class="login-container--right">
+            <div class="login-form">
+                <h1>Inscription</h1>
+            {{ form_start(registerForm) }}
+            {{ form_widget(registerForm) }}
+                <button type="submit">S'inscrire</button>
+            {{ form_end(registerForm) }}
+            </div>
+
+        </div>
+
     </div>
 
 {% endblock %}
