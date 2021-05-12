@@ -188,7 +188,7 @@
 
     <div class="page-content">
         <div class="home-news-list">
-        <h1>Notre actualité</h1>
+        <h1>Nos derniers articles</h1>
         {% for article in articles|reverse %}
             <div class="article-box w-100 bdr-10" style="background-image: url('{{ article.image }}')" onclick="location.href='/article-{{ article.id }}'">
                 <h1>{{ article.title }}</h1>

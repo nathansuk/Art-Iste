@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ site_name }} : {{ controller_name }}{% endblock %}
+
+{% block body %}
+
+    <div class="page-top w-100" style="height: 300px">
+        <div class="page-top--leftimage"></div>
+        <div class="page-top--content">
+            <h1>Notre actualité</h1>
+        </div>
+    </div>
+
+    <div class="page-content">
+        <div class="home-news-list w-100">
+            {% for article in articles|reverse %}
+                <div class="article-box w-100 bdr-10" style="background-image: url('{{ article.image }}')" onclick="location.href='/article-{{ article.id }}'">
+                    <h1>{{ article.title }}</h1>
+                </div>
+
+            {% endfor %}
+        </div>
+
+    </div>
+
+{% endblock %}

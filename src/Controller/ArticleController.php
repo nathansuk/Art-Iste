@@ -22,10 +22,23 @@ class ArticleController extends AbstractController
             return $this->redirectToRoute("home");
         }
 
-
         return $this->render('article/index.html.twig', [
             'controller_name' => 'ArticleController',
             'article' => $article
         ]);
     }
+
+    /**
+     * @Route("/actu", name="listing_article")
+     */
+    public function index(): Response {
+
+        $articles = $this->getDoctrine()->getRepository(Articles::class)->findBy(array(), ['postedAt' => 'DESC']);
+
+        return $this->render('article/liste.html.twig', [
+            'controller_name' => 'Actualité',
+            'articles' => $articles
+        ]);
+    }
+
 }
