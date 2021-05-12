@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ site_name }} : {{ article.title }}{% endblock %}
+
+{% block body %}
+
+    <div class="article-topstory w-100" style="background-image: url('{{ article.image }}')"></div>
+
+    <div class="page-content">
+
+        <a href="#" class="back-to-article">< Revenir à la liste des articles</a>
+
+        <div class="article-show">
+
+        <h1>{{ article.title }}</h1>
+
+            <div class="article-content">
+
+                {{ article.content|raw }}
+
+            </div>
+        </div>
+
+    </div>
+
+{% endblock %}
