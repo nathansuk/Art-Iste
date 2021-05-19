@@ -3,6 +3,7 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Articles;
+use App\Entity\NewsCategory;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -29,7 +30,12 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linktoDashboard('Accueil', 'fa fa-home');
-        yield MenuItem::linkToCrud('Utilisateurs', 'fas fa-list', User::class);
-        yield MenuItem::linkToCrud('Articles', 'fas fa-list', Articles::class);
+
+        yield MenuItem::section('Actualité', 'fas fa-atlas');
+        yield MenuItem::linkToCrud('Catégories', 'fas fa-bars', NewsCategory::class);
+        yield MenuItem::linkToCrud('Les articles', 'fas fa-book-open', Articles::class);
+
+        yield MenuItem::section('Communauté', 'fas fa-globe-europe');
+        yield MenuItem::linkToCrud('Comptes utilisateur', 'fas fa-users', User::class);
     }
 }

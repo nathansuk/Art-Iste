@@ -42,6 +42,11 @@ class Articles
      */
     private $image;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=NewsCategory::class, inversedBy="articles")
+     */
+    private $category;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +108,18 @@ class Articles
     public function setImage(string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getCategory(): ?NewsCategory
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?NewsCategory $category): self
+    {
+        $this->category = $category;
 
         return $this;
     }

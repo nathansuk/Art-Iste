@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ArtisanController!{% endblock %}
+
+{% block body %}
+<div class="page-content">
+
+    <h1>Artisan</h1>
+
+    <div class="artisan-container">
+
+    <div class="artisan-container--leftpart">
+
+        <div class="artisan-info-box w-100 bdr-10">
+
+            <div class="artisan-profile-pic"></div>
+
+            <div class="artisan-info-box--content">
+                <h2>Nathan SUK</h2>
+                <h3 class="artisan-location">Paris - 75019</h3>
+                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam</p>
+                <div class="artisan-taglist">
+                    <span>Coiffeur</span>
+                    <span>Je sais pas</span>
+                    <span>Heyissssssss</span>
+                    <span>Un autre tag on sait jamais</span>
+                    <span>Salut coucou</span>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div class="artisan-container--rightpart">
+
+        <div class="user-actions-list">
+            <button class="user-artisans-actions">Something</button>
+            <button class="user-artisans-actions">Something</button>
+            <button class="user-artisans-actions">Something</button>
+        </div>
+
+        <div class="artisan-map w-100 bdr-10"></div>
+
+        <h1 style="margin-top: 30px;">Contact</h1>
+        <div class="contact-artisan">
+
+            <div class="contact-box">
+            <i class="fi-rr-smartphone"></i>
+            </div>
+        </div>
+
+    </div>
+
+
+    </div>
+
+    <h1 style="margin-top: 30px">Book photo</h1>
+    <div class="book-photo">
+
+        {% for i in 0..10 %}
+        <div class="photo-box"></div>
+        {% endfor %}
+
+    </div>
+
+</div>
+{% endblock %}

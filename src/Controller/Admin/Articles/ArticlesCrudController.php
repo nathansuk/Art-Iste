@@ -4,6 +4,7 @@ namespace App\Controller\Admin\Articles;
 
 use App\Entity\Articles;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
@@ -21,12 +22,13 @@ class ArticlesCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-            TextField::new('title'),
+            TextField::new('title', 'Titre'),
             TextEditorField::new('content', 'Contenu')
                 ->setFormType(CKEditorType::class)
                 ->setLabel('Contenu'),
-            DateField::new('postedAt'),
-            TextField::new('image')
+            DateField::new('postedAt', 'Date de publication'),
+            TextField::new('image', 'Image de mise en avant'),
+            AssociationField::new('category', 'Catégorie')
         ];
     }
 
