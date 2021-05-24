@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}{{ site_name }} : {{ controller_name }}{% endblock %}
+
+{% block body %}
+
+    <style>
+        header{
+            display: none;
+        }
+    </style>
+
+    <div class="login-container">
+
+        <div class="login-container--leftimage">
+            <a href="{{ path('home') }}">< Retourner sur le site</a>
+        </div>
+
+        <div class="login-container--right">
+            <div class="login-form">
+                <h1>Inscription Pro</h1>
+                {{ form_start(artisan_form) }}
+                {{ form_widget(artisan_form) }}
+                <button type="submit">Soumettre ma demande</button>
+                {{ form_end(artisan_form) }}
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock %}

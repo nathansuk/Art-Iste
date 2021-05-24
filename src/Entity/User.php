@@ -62,9 +62,20 @@ class User implements UserInterface
      */
     private $articles;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Artisan::class, mappedBy="user")
+     */
+    private $artisans;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $isPro;
+
     public function __construct()
     {
         $this->articles = new ArrayCollection();
+        $this->artisans = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -222,6 +233,54 @@ class User implements UserInterface
                 $article->setAuthor(null);
             }
         }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Artisan[]
+     */
+    public function getArtisans(): Collection
+    {
+        return $this->artisans;
+    }
+
+    public function addArtisan(Artisan $artisan): self
+    {
+        if (!$this->artisans->contains($artisan)) {
+            $this->artisans[] = $artisan;
+            $artisan->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArtisan(Artisan $artisan): self
+    {
+        if ($this->artisans->removeElement($artisan)) {
+            // set the owning side to null (unless already changed)
+            if ($artisan->getUser() === $this) {
+                $artisan->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString(): string {
+
+        return $this->getUsername();
+
+    }
+
+    public function getIsPro(): ?bool
+    {
+        return $this->isPro;
+    }
+
+    public function setIsPro(bool $isPro): self
+    {
+        $this->isPro = $isPro;
 
         return $this;
     }

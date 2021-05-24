@@ -3,6 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Articles;
+use App\Entity\Artisan;
+use App\Entity\ArtisansJob;
 use App\Entity\NewsCategory;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
@@ -37,5 +39,9 @@ class DashboardController extends AbstractDashboardController
 
         yield MenuItem::section('Communauté', 'fas fa-globe-europe');
         yield MenuItem::linkToCrud('Comptes utilisateur', 'fas fa-users', User::class);
+
+        yield MenuItem::section('Artisans', 'fas fa-globe-europe');
+        yield MenuItem::linkToCrud('Métiers', 'fas fa-air-freshener', ArtisansJob::class);
+        yield MenuItem::linkToCrud('Artisans', 'fas fa-users', Artisan::class);
     }
 }
