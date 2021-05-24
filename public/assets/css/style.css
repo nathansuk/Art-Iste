@@ -40,6 +40,14 @@ nav {
   color: black;
   font-weight: 600;
 }
+nav a {
+  color: black;
+}
+nav a:hover {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-decoration-color: #224f69;
+}
 
 .user-space {
   font-weight: 600;
@@ -112,7 +120,7 @@ button:hover {
 .page-top {
   width: 100%;
   height: 500px;
-  background-color: #3498db;
+  background-color: #333943;
   color: white;
   overflow: hidden;
 }
@@ -154,7 +162,7 @@ button:hover {
   width: 30%;
   height: 100%;
   border-radius: 0 0 0 100%;
-  background-image: url("https://www.netpme.fr/wp-content/uploads/2020/02/Entreprendre-dans-l%E2%80%99artisanat-faire-de-sa-passion-son-m%C3%A9tier-artisanat-artisans-netpme.fr_.jpg");
+  background-image: url("/assets/images/pagetopright.jpg");
   background-size: cover;
   position: relative;
   float: right;
@@ -164,7 +172,7 @@ button:hover {
   width: 70%;
   height: 100px;
   margin: auto;
-  background-color: #224f69;
+  background-color: #dfb131;
   position: relative;
   top: -50px;
   display: flex;
@@ -219,7 +227,7 @@ button:hover {
   font-weight: 600;
 }
 .home-artisans-list .artisans-box .artisans-box-pic {
-  background-image: url("https://www.artisandubatiment.fr/wp-content/uploads/2017/10/site-internet-artisan.jpg");
+  background-image: url("/assets/images/artisantest.jpeg");
   background-size: cover;
   border-radius: 10px;
   width: 100%;
@@ -276,7 +284,7 @@ button:hover {
   height: 150px;
   display: flex;
   flex-direction: row;
-  background-color: #3498db;
+  background-color: #333943;
   color: white;
   box-sizing: border-box;
   padding-left: 30px;
@@ -316,7 +324,7 @@ button:hover {
   margin: auto;
   position: relative;
   top: 60px;
-  background-color: #ffd32a;
+  background-color: #dfb131;
 }
 .monitor-numbers--content {
   position: relative;
@@ -361,7 +369,7 @@ button:hover {
 .biginfo--content .buginfo--content-right {
   width: 600px;
   height: 300px;
-  background-color: #5cb4ff;
+  background-color: #dfb131;
   padding: 50px;
   box-sizing: border-box;
 }
@@ -499,7 +507,7 @@ button:hover {
 .back-to-article {
   margin-top: 30px;
   color: white;
-  background-color: #3498db;
+  background-color: #dfb131;
   font-weight: 800;
   padding: 20px;
 }
