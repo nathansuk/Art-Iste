@@ -629,4 +629,29 @@ button:hover {
   box-shadow: #1d2124;
 }
 
+.artisan-top {
+  width: 100%;
+  height: 500px;
+  background-image: url("https://www.artxterra.com/wp-content/uploads/2020/03/etre-artiste-en-temps-de-crise-coronavirus-scaled.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.artisan-top .center-top {
+  margin: auto;
+  position: relative;
+  top: 50%;
+  color: white;
+}
+.artisan-top h1 {
+  font-weight: 800;
+}
+.artisan-top .artisan-type {
+  width: 100px;
+  height: 100px;
+  color: white;
+  background-color: #333943;
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -1,11 +1,18 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ArtisanController!{% endblock %}
+{% block title %}{{ site_name }} : {{ artisan.user.firstName }} {{ artisan.user.lastName }}{% endblock %}
 
 {% block body %}
-<div class="page-content">
 
-    <h1>Artisan</h1>
+    <div class="artisan-top">
+
+        <div class="center-top">
+        <h1>{{ artisan.user.firstName }} {{ artisan.user.lastName }}</h1>
+            <h2>{{ artisan.category.name }}</h2>
+        </div>
+
+    </div>
+<div class="page-content">
 
     <div class="artisan-container">
 
@@ -16,11 +23,11 @@
             <div class="artisan-profile-pic"></div>
 
             <div class="artisan-info-box--content">
-                <h2>Nathan SUK</h2>
-                <h3 class="artisan-location">Paris - 75019</h3>
+                <h2>À propos</h2>
+                <h3 class="artisan-location">Localisation : Paris - 75019</h3>
                 <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam</p>
                 <div class="artisan-taglist">
-                    <span>Coiffeur</span>
+                    <span>{{ artisan.category.name }}</span>
                     <span>Je sais pas</span>
                     <span>Heyissssssss</span>
                     <span>Un autre tag on sait jamais</span>
@@ -45,10 +52,8 @@
 
         <h1 style="margin-top: 30px;">Contact</h1>
         <div class="contact-artisan">
-
-            <div class="contact-box">
-            <i class="fi-rr-smartphone"></i>
-            </div>
+                <span>{{ artisan.user.username }}</span><br />
+                <span>07 61 07 88 85</span>
         </div>
 
     </div>
