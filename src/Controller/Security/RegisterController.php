@@ -47,7 +47,8 @@ class RegisterController extends AbstractController
                 $hash = $passwordEncoder->encodePassword($user, $user->getPassword());
                 $user->setPassword($hash)
                     ->setRegisterDate(new \DateTime("now"))
-                    ->setRoles(["ROLE_USER"]);
+                    ->setRoles(["ROLE_USER"])
+                    ->setIsPro(false);
 
                 $entityManager->persist($user);
                 $entityManager->flush();
