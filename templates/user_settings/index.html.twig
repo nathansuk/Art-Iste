@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserSettingsController!{% endblock %}
+
+{% block body %}
+
+    {{ form_start(userSettingsForm) }}
+
+    {{ form_widget(userSettingsForm) }}
+
+    <button type="submit">Envoyer</button>
+    {{ form_start(userSettingsForm) }}
+
+{% endblock %}

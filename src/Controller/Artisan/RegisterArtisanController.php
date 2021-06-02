@@ -35,7 +35,10 @@ class RegisterArtisanController extends AbstractController
         if($artisan_form->isSubmitted() && $artisan_form->isValid()) {
 
                 $artisan->setUser($user)
-                        ->setIsVerified(false);
+                        ->setIsVerified(false)
+                        ->setVitrineName($user->getFirstName() . ' ' . $user->getLastName())
+                        ->setVitrineDesc('Voici la description de ma vitrine. Vous pourrez la changer depuis vos paramètres.')
+                        ->setCoverImage('default.png');
 
                 $entityManager->persist($artisan);
                 $entityManager->flush();

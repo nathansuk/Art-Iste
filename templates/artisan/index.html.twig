@@ -4,10 +4,10 @@
 
 {% block body %}
 
-    <div class="artisan-top">
+    <div class="artisan-top" style="background-image: url({{ asset('assets/upload/artisans/' ~ artisan.coverImage) }});">
 
         <div class="center-top">
-        <h1>{{ artisan.user.firstName }} {{ artisan.user.lastName }}</h1>
+        <h1>{{ artisan.vitrineName }}</h1>
             <h2>{{ artisan.category.name }}</h2>
         </div>
 
@@ -20,12 +20,13 @@
 
         <div class="artisan-info-box w-100 bdr-10">
 
-            <div class="artisan-profile-pic"></div>
+            <div class="artisan-profile-pic" style="background-image: url({{ asset('assets/upload/profile_pics/' ~ artisan.user.userSettings.imageName) }});"></div>
 
             <div class="artisan-info-box--content">
                 <h2>À propos</h2>
-                <h3 class="artisan-location">Localisation : Paris - 75019</h3>
-                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam</p>
+                <h3 class="artisan-location">{{ artisan.user.firstName }} {{ artisan.user.lastName }}</h3>
+                <h2 class="artisan-location">Localisation : Paris - 75019</h2>
+                <p>{{ artisan.vitrineDesc }}</p>
                 <div class="artisan-taglist">
                     <span>{{ artisan.category.name }}</span>
                     <span>Je sais pas</span>
