@@ -5,6 +5,7 @@ namespace App\Controller\Security;
 
 
 use App\Entity\User;
+use App\Entity\UserSettings;
 use App\Form\RegisterType;
 use App\Security\LoginAuthenticator;
 use Doctrine\ORM\EntityManagerInterface;
@@ -50,7 +51,13 @@ class RegisterController extends AbstractController
                     ->setRoles(["ROLE_USER"])
                     ->setIsPro(false);
 
+                $settings = new UserSettings();
+
+                $settings->setUser($user)
+                         ->setImageName('default.jpeg');
+
                 $entityManager->persist($user);
+                $entityManager->persist($settings);
                 $entityManager->flush();
                 $guardAuthenticatorHandler->authenticateUserAndHandleSuccess($user, $request, $loginAuthenticator, 'main');
 

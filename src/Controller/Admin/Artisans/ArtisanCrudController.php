@@ -21,12 +21,13 @@ class ArtisanCrudController extends AbstractCrudController
     {
         return [
             AssociationField::new('user', 'Utilisateur'),
+            TextField::new('vitrineName', 'Nom de la vitrine'),
+            AssociationField::new('category', 'Catégorie'),
             TextField::new('kbis', 'KBIS'),
             BooleanField::new('isVerified', 'Vérifié'),
             BooleanField::new('atHome', 'Exerce à domicile'),
             BooleanField::new('canMove', 'Se déplace'),
-            IntegerField::new('activityPerimeter', 'Périmètre de déplacement'),
-            AssociationField::new('category', 'Catégorie')
+            IntegerField::new('activityPerimeter', 'Périmètre de déplacement (km)'),
         ];
     }
 

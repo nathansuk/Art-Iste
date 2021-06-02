@@ -58,6 +58,21 @@ class Artisan
      */
     private $category;
 
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $cover_image;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $vitrineName;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $vitrineDesc;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -155,6 +170,42 @@ class Artisan
     public function setCategory(?ArtisansJob $category): self
     {
         $this->category = $category;
+
+        return $this;
+    }
+
+    public function getCoverImage(): ?string
+    {
+        return $this->cover_image;
+    }
+
+    public function setCoverImage(string $cover_image): self
+    {
+        $this->cover_image = $cover_image;
+
+        return $this;
+    }
+
+    public function getVitrineName(): ?string
+    {
+        return $this->vitrineName;
+    }
+
+    public function setVitrineName(string $vitrineName): self
+    {
+        $this->vitrineName = $vitrineName;
+
+        return $this;
+    }
+
+    public function getVitrineDesc(): ?string
+    {
+        return $this->vitrineDesc;
+    }
+
+    public function setVitrineDesc(string $vitrineDesc): self
+    {
+        $this->vitrineDesc = $vitrineDesc;
 
         return $this;
     }

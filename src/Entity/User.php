@@ -72,11 +72,10 @@ class User implements UserInterface
      */
     private $isPro;
 
-    public function __construct()
-    {
-        $this->articles = new ArrayCollection();
-        $this->artisans = new ArrayCollection();
-    }
+    /**
+     * @ORM\OneToOne(targetEntity=UserSettings::class, mappedBy="user", cascade={"persist", "remove"})
+     */
+    private $userSettings;
 
     public function getId(): ?int
     {
@@ -284,4 +283,22 @@ class User implements UserInterface
 
         return $this;
     }
+
+    public function getUserSettings(): ?UserSettings
+    {
+        return $this->userSettings;
+    }
+
+    public function setUserSettings(UserSettings $userSettings): self
+    {
+        // set the owning side of the relation if necessary
+        if ($userSettings->getUser() !== $this) {
+            $userSettings->setUser($this);
+        }
+
+        $this->userSettings = $userSettings;
+
+        return $this;
+    }
+
 }

@@ -13,7 +13,7 @@ class ArtisanController extends AbstractController
      * @param int $id
      * @param ArtisanService $artisanService
      * @return Response
-     * @Route("/artisan-{id}", name="show_artisan")
+     * @Route("/artisan/{id}", name="show_artisan")
      */
     public function index(int $id, ArtisanService $artisanService): Response
     {
