@@ -1,0 +1,14 @@
+{% extends 'settingsbase.html.twig' %}
+
+{% block title %}{{ site_name }} : {{ controller_name }}{% endblock %}
+
+{% block settingsspace %}
+
+    {{ form_start(addPhotoForm) }}
+
+    {{ form_widget(addPhotoForm) }}
+
+    <button type="submit" class="btn btn-primary">Ajouter une photo</button>
+    {{ form_start(addPhotoForm) }}
+
+{% endblock %}

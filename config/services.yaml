@@ -5,6 +5,8 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     profile_pics: '%kernel.project_dir%/public/assets/upload/profile_pics'
+    artisan_cover: '%kernel.project_dir%/public/assets/upload/artisans'
+    book_photo: '%kernel.project_dir%/public/assets/upload/book_photo'
 services:
     # default configuration for services in *this* file
     _defaults:

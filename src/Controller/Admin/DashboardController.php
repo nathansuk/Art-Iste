@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Articles;
 use App\Entity\Artisan;
+use App\Entity\ArtisanPhotos;
 use App\Entity\ArtisansJob;
 use App\Entity\NewsCategory;
 use App\Entity\User;
@@ -43,5 +44,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('Artisans', 'fas fa-globe-europe');
         yield MenuItem::linkToCrud('Métiers', 'fas fa-air-freshener', ArtisansJob::class);
         yield MenuItem::linkToCrud('Artisans', 'fas fa-users', Artisan::class);
+        yield MenuItem::linkToCrud('Photos', 'fas fa-images', ArtisanPhotos::class);
     }
 }

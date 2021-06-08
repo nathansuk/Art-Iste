@@ -1,0 +1,14 @@
+{% extends 'settingsbase.html.twig' %}
+
+{% block title %}{{ site_name }} : {{ controller_name }}{% endblock %}
+
+{% block settingsspace %}
+
+    {{ form_start(artisanSettingsForm) }}
+
+    {{ form_widget(artisanSettingsForm) }}
+
+    <button type="submit" class="btn btn-primary">Mettre à jour</button>
+    {{ form_start(artisanSettingsForm) }}
+
+{% endblock %}

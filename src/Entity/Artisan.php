@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\ArtisanRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -72,6 +74,31 @@ class Artisan
      * @ORM\Column(type="string", length=255)
      */
     private $vitrineDesc;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $phoneNumber;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $coverName;
+
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $updatedAt;
+
+    /**
+     * @ORM\OneToMany(targetEntity=ArtisanPhotos::class, mappedBy="artisan")
+     */
+    private $artisanPhotos;
+
+    public function __construct()
+    {
+        $this->artisanPhotos = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -208,5 +235,75 @@ class Artisan
         $this->vitrineDesc = $vitrineDesc;
 
         return $this;
+    }
+
+    public function getPhoneNumber(): ?string
+    {
+        return $this->phoneNumber;
+    }
+
+    public function setPhoneNumber(string $phoneNumber): self
+    {
+        $this->phoneNumber = $phoneNumber;
+
+        return $this;
+    }
+
+    public function getCoverName(): ?string
+    {
+        return $this->coverName;
+    }
+
+    public function setCoverName(string $coverName): self
+    {
+        $this->coverName = $coverName;
+
+        return $this;
+    }
+
+    public function getUpdatedAt(): ?\DateTimeInterface
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeInterface $updatedAt): self
+    {
+        $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|ArtisanPhotos[]
+     */
+    public function getArtisanPhotos(): Collection
+    {
+        return $this->artisanPhotos;
+    }
+
+    public function addArtisanPhoto(ArtisanPhotos $artisanPhoto): self
+    {
+        if (!$this->artisanPhotos->contains($artisanPhoto)) {
+            $this->artisanPhotos[] = $artisanPhoto;
+            $artisanPhoto->setArtisan($this);
+        }
+
+        return $this;
+    }
+
+    public function removeArtisanPhoto(ArtisanPhotos $artisanPhoto): self
+    {
+        if ($this->artisanPhotos->removeElement($artisanPhoto)) {
+            // set the owning side to null (unless already changed)
+            if ($artisanPhoto->getArtisan() === $this) {
+                $artisanPhoto->setArtisan(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString(): string {
+        return $this->getVitrineName();
     }
 }

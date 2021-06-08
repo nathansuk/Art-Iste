@@ -4,7 +4,7 @@
 
 {% block body %}
 
-    <div class="artisan-top" style="background-image: url({{ asset('assets/upload/artisans/' ~ artisan.coverImage) }});">
+    <div class="artisan-top" style="background-image: url({{ asset('assets/upload/artisans/' ~ artisan.coverName) }});">
 
         <div class="center-top">
         <h1>{{ artisan.vitrineName }}</h1>
@@ -53,8 +53,8 @@
 
         <h1 style="margin-top: 30px;">Contact</h1>
         <div class="contact-artisan">
-                <span>{{ artisan.user.username }}</span><br />
-                <span>07 61 07 88 85</span>
+                <span><i class="fi-rr-envelope"></i> <a href="mailto:{{ artisan.user.username }}">{{ artisan.user.username }}</a> </span>
+                <span><i class="fi-rr-smartphone"></i> {{ artisan.phoneNumber }}</span>
         </div>
 
     </div>
@@ -65,8 +65,13 @@
     <h1 style="margin-top: 30px">Book photo</h1>
     <div class="book-photo">
 
+        {% for photos in artisan.getArtisanPhotos|reverse %}
+            {% if photos.valid %}
+            <div class="photo-box" style="background-image: url({{ asset('assets/upload/book_photo/' ~ photos.imageName) }});"></div>
+            {% endif %}
+        {% endfor %}
+
         {% for i in 0..10 %}
-        <div class="photo-box"></div>
         {% endfor %}
 
     </div>

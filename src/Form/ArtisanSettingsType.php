@@ -3,53 +3,57 @@
 namespace App\Form;
 
 use App\Entity\Artisan;
-use App\Entity\ArtisansJob;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class RegisterArtisanType extends AbstractType
+class ArtisanSettingsType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('category', EntityType::class, [
-                'class' => ArtisansJob::class,
-                'choice_label' => 'name',
+            ->add('vitrineName', TextType::class, [
+                'label' => 'Intitulé de la vitrine'
+            ])
+            ->add('vitrineDesc', TextareaType::class, [
+                'label' => 'Description de la vitrine (max. 255 caractères)'
             ])
             ->add('kbis', TextType::class, [
                 'attr' => [
-                    'placeholder' => 'Numéro KBIS'
+                    'disabled' => true
                 ]
             ])
             ->add('AdressePro', TextType::class, [
-                'attr' => [
-                    'placeholder' => 'Adresse professionnelle'
-                ]
+                'label' => 'Adresse profesionnelle'
             ])
             ->add('atHome', CheckboxType::class, [
-                'label' => 'Vous exercez à domicile ?'
+                'label' => 'Exercice à domicile'
             ])
             ->add('canMove', CheckboxType::class, [
-                'label' => 'Vous vous déplacez ?'
+                'label' => 'Je me déplace'
             ])
             ->add('activityPerimeter', IntegerType::class, [
-                'label'  => 'Périmètre activité',
+                'label' => 'Périmètre de déplacement'
+            ])
+            ->add('cover_image', FileType::class, [
+                'label' => 'Modifier la photo de couverture',
+                'multiple' => false,
+                'mapped' => false,
+                'required' => false,
                 'attr' => [
-                    'placeholder' => 'Périmètre de déplacement'
+                    'accept' => 'image/jpeg,image/png,image/jpg'
                 ]
             ])
             ->add('phoneNumber', TelType::class, [
-                'attr' => [
-                    'placeholder' => 'Numéro de téléphone professionel'
-                ]
+                'label' => 'Numéro de téléphone professionel'
             ])
+            ->add('category')
         ;
     }
 

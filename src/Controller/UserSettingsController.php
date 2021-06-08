@@ -47,7 +47,7 @@ class UserSettingsController extends AbstractController
 
 
         return $this->render('user_settings/index.html.twig', [
-            'controller_name' => 'UserSettingsController',
+            'controller_name' => 'Paramètres utilisateur',
             'userSettingsForm' => $form->createView()
         ]);
     }

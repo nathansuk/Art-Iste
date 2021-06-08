@@ -54,7 +54,7 @@ class RegisterArtisanController extends AbstractController
         }
 
         return $this->render('register_artisan/index.html.twig', [
-            'controller_name' => 'RegisterArtisanController',
+            'controller_name' => 'Inscription pour professionnels',
             'artisan_form' => $artisan_form->createView()
         ]);
     }
