@@ -693,4 +693,25 @@ button:hover {
   margin-bottom: 20px;
 }
 
+.searchpage-content {
+  display: flex;
+  flex-direction: column;
+  flex-flow: row wrap;
+  margin-top: 50px;
+}
+
+.search-artisanbox {
+  display: flex;
+  flex-direction: column;
+  height: 300px;
+  width: 100%;
+}
+
+.artisansbox-coverimage {
+  height: 100px;
+  width: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
 /*# sourceMappingURL=style.css.map */

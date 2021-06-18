@@ -9,12 +9,14 @@
         <div class="page-top--content">
             <h1>Découvrez les artisans proches de chez-vous</h1>
             <span>Chacun a son savoir faire, sur {{ site_name }} vous trouverez celui qui vous correspond</span>
-            <form class="bdr-10">
-                <select name="pets" id="pet-select">
+            <form action="/search" class="bdr-10">
+                <select name="category" id="category-select">
                     <option value="">Catégorie</option>
-                    <option value="dog">Dog</option>
+                    {% for category in categories %}
+                        <option value="{{ category.id }}">{{ category.name }}</option>
+                    {% endfor %}
                 </select>
-                <input type="text" placeholder="Ville">
+                <input type="text" name="city" placeholder="Ville">
                 <button type="submit" class="bdr-10">Rechercher</button>
             </form>
         </div>

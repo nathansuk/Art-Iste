@@ -49,8 +49,6 @@
             <button class="user-artisans-actions">Something</button>
         </div>
 
-        <div class="artisan-map w-100 bdr-10"></div>
-
         <h1 style="margin-top: 30px;">Contact</h1>
         <div class="contact-artisan">
                 <span><i class="fi-rr-envelope"></i> <a href="mailto:{{ artisan.user.username }}">{{ artisan.user.username }}</a> </span>
@@ -60,6 +58,12 @@
     </div>
 
 
+    </div>
+
+    <h1 style="margin-top: 30px">Localisation et périmètre d'activité</h1>
+    <div onload="initialize()" id="map" style="width: 100%; height: 480px;"></div>
+    <div id="floating-panel">
+        <input id="address" type="textbox" value="{{ artisan.adressePro }}" hidden>
     </div>
 
     <h1 style="margin-top: 30px">Book photo</h1>
@@ -77,4 +81,41 @@
     </div>
 
 </div>
+{% endblock %}
+
+{% block javascripts %}
+
+    <script src="https://maps.googleapis.com/maps/api/js?key={{ google_api_key }}&callback=initialize&libraries=&v=weekly" async></script>
+
+    <script>
+        let geocoder;
+        let map;
+
+        function initialize() {
+            geocoder = new google.maps.Geocoder();
+            var latlng = new google.maps.LatLng(-34.397, 150.644);
+            var mapOptions = {
+                zoom: 15,
+                center: latlng
+            }
+            map = new google.maps.Map(document.getElementById('map'), mapOptions);
+            codeAddress();
+        }
+
+        function codeAddress() {
+            var address = document.getElementById('address').value;
+            geocoder.geocode( { 'address': address}, function(results, status) {
+                if (status == 'OK') {
+                    map.setCenter(results[0].geometry.location);
+                    var marker = new google.maps.Marker({
+                        map: map,
+                        position: results[0].geometry.location
+                    });
+                } else {
+                    alert('Geocode was not successful for the following reason: ' + status);
+                }
+            });
+        }
+    </script>
+
 {% endblock %}

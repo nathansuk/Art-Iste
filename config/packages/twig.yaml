@@ -3,3 +3,4 @@ twig:
     globals:
         site_name: '%env(SITE_NAME)%'
         site_url: '%env(SITE_URL)%'
+        google_api_key: '%env(GOOGLE_API_KEY)%'

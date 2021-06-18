@@ -33,6 +33,16 @@ class RegisterArtisanType extends AbstractType
                     'placeholder' => 'Adresse professionnelle'
                 ]
             ])
+            ->add('city', TextType::class, [
+                'attr' => [
+                    'placeholder' => 'Ville'
+                ]
+            ])
+            ->add('zipCode', TextType::class, [
+                'attr' => [
+                    'placeholder' => 'Code postal'
+                ]
+            ])
             ->add('atHome', CheckboxType::class, [
                 'label' => 'Vous exercez à domicile ?'
             ])
@@ -42,12 +52,12 @@ class RegisterArtisanType extends AbstractType
             ->add('activityPerimeter', IntegerType::class, [
                 'label'  => 'Périmètre activité',
                 'attr' => [
-                    'placeholder' => 'Périmètre de déplacement'
+                    'placeholder' => 'Périmètre de déplacement (km)'
                 ]
             ])
             ->add('phoneNumber', TelType::class, [
                 'attr' => [
-                    'placeholder' => 'Numéro de téléphone professionel'
+                    'placeholder' => 'Numéro de téléphone professionnel'
                 ]
             ])
         ;
