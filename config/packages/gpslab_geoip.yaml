@@ -9,4 +9,3 @@ gpslab_geoip:
 
     locales: [ 'fr', 'en' ]
 
-    url: 'https://art-iste.herokuapp.com/GeoLite2-City.mmdb'
