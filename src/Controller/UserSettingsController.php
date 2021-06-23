@@ -21,6 +21,9 @@ class UserSettingsController extends AbstractController
      */
     public function index(UserService $userService, Request $request, EntityManagerInterface $entityManager): Response
     {
+        if(!$this->getUser()) {
+            return $this->redirectToRoute("home");
+        }
 
         $user = $userService->getUserByUsername($this->getUser()->getUsername());
 

@@ -29,7 +29,7 @@ class ArticleController extends AbstractController
     }
 
     /**
-     * @Route("/actu", name="listing_article")
+     * @Route("/blog", name="listing_article")
      */
     public function index(): Response {
 

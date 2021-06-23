@@ -52,13 +52,46 @@ nav
   position: relative
   display: flex
   top: 40%
-  width: 300px
+  width: 500px
   justify-content: space-between
 
   a
     color: black
+    i
+      margin-right: 10px
 
     &:hover
       text-decoration: underline
       text-decoration-thickness: 3px
       text-decoration-color: #224f69
+
+.user-submenuopen:hover ~ .user-submenu
+  transition: 0.2s ease-in-out
+  display: block
+
+.user-submenu:hover
+  transition: 0.2s ease-in-out
+  display: block
+
+
+.user-submenu
+  display: none
+  height: auto
+  background-color: white
+  float: right
+  width: 100%
+  position: absolute
+  top: 30px
+  z-index: 99
+
+  ul
+    list-style: none
+
+    li
+      height: 30px
+      border: none
+      border-bottom: 1px grey
+      margin-bottom: 15px
+
+      i
+        margin-right: 10px

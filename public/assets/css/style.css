@@ -54,16 +54,52 @@ nav a:hover {
   position: relative;
   display: flex;
   top: 40%;
-  width: 300px;
+  width: 500px;
   justify-content: space-between;
 }
 .user-space a {
   color: black;
 }
+.user-space a i {
+  margin-right: 10px;
+}
 .user-space a:hover {
   text-decoration: underline;
   text-decoration-thickness: 3px;
   text-decoration-color: #224f69;
+}
+
+.user-submenuopen:hover ~ .user-submenu {
+  transition: 0.2s ease-in-out;
+  display: block;
+}
+
+.user-submenu:hover {
+  transition: 0.2s ease-in-out;
+  display: block;
+}
+
+.user-submenu {
+  display: none;
+  height: auto;
+  background-color: white;
+  float: right;
+  width: 100%;
+  position: absolute;
+  top: 30px;
+  z-index: 99;
+}
+.user-submenu ul {
+  list-style: none;
+}
+.user-submenu ul li {
+  height: 30px;
+  border: none;
+  border-bottom: 1px grey;
+  margin-bottom: 15px;
+}
+.user-submenu ul li i {
+  margin-right: 10px;
 }
 
 .bdr-10 {
@@ -276,38 +312,55 @@ button:hover {
   background: #046cde;
 }
 
+.no-bgr {
+  background-color: white;
+  color: black;
+}
+
+.colored-bgr {
+  background-color: #333943;
+  color: white;
+}
+
 .infos-solutions {
   margin-top: 30px;
 }
 
 .solutions-content {
-  height: 150px;
+  height: 400px;
   display: flex;
   flex-direction: row;
-  background-color: #333943;
-  color: white;
   box-sizing: border-box;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding-left: 100px;
+  padding-right: 100px;
   margin-bottom: 15px;
 }
 .solutions-content .solutions-content--infos {
   position: relative;
-  top: 10px;
+  top: 20%;
 }
-.solutions-content i {
-  position: relative;
-  top: 30%;
-  text-align: center;
-  font-size: 80px;
+.solutions-content .solutions-content--infos p {
+  font-size: larger;
+  margin-bottom: 30px;
+}
+.solutions-content .solutions-content--infos button {
+  color: black;
+  border: 2px solid black;
   width: 200px;
+  height: 80px;
+  background-color: white;
+  box-shadow: 20px 15px 0px 3px #333943;
 }
-.solutions-content hr {
-  margin-left: 20px;
-  margin-right: 20px;
-  opacity: 0.5;
+
+.solutions-content--image {
+  margin-right: 100px;
 }
-.solutions-content button {
+.solutions-content--image img {
+  width: 400px;
+  height: 300px;
+  box-shadow: 22px 31px 0px 3px #333943;
+}
+.solutions-content--image button {
   border: 2px solid white;
   background: none;
   color: white;
@@ -609,7 +662,7 @@ button:hover {
   margin-bottom: 10px;
   flex: 1 1 auto;
   margin-right: 10px;
-  transition: 0.2s ease-in-out;
+  transition: 1s ease-in-out;
 }
 .photo-box:hover {
   cursor: pointer;
@@ -672,8 +725,6 @@ button:hover {
 .settings-content .settings-menu {
   width: 400px;
   height: auto;
-  background-color: #e7e7e7;
-  border-radius: 10px;
   padding: 20px;
   margin-right: 10px;
   margin-bottom: 20px;
@@ -686,6 +737,11 @@ button:hover {
   display: flex;
   flex-direction: row;
   flex-flow: row wrap;
+  width: 50%;
+}
+
+.photo-card {
+  margin-bottom: 20px;
 }
 
 #register_artisan select {

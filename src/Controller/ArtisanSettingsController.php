@@ -22,7 +22,7 @@ class ArtisanSettingsController extends AbstractController
      * @param Request $request
      * @param EntityManagerInterface $entityManager
      * @return Response
-     * @Route("/settings/artisan/{id}", name="artisan_settings")
+     * @Route("/settings/artisan/{id}", name="artisan_general_settings")
      */
     public function index(int $id, UserService $userService, ArtisanService $artisanService, Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -74,7 +74,7 @@ class ArtisanSettingsController extends AbstractController
      * @param Request $request
      * @param EntityManagerInterface $entityManager
      * @return Response
-     * @Route("/settings/artisan/{id}/photos/", name="book_photos")
+     * @Route("/settings/artisan/{id}/photos/", name="book_add_photos")
      */
     public function manageBookPhotos(int $id, UserService $userService, ArtisanService $artisanService, Request $request, EntityManagerInterface $entityManager): Response
     {
@@ -120,7 +120,7 @@ class ArtisanSettingsController extends AbstractController
     }
 
     /**
-     * @Route("/settings/artisan/{id}/photolist/", name="list_photos")
+     * @Route("/settings/artisan/{id}/photolist/", name="list_book_photo")
      * @param int $id
      * @param UserService $userService
      * @param ArtisanService $artisanService

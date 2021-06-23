@@ -5,14 +5,14 @@
 
         <div class="liste-photos">
         {% for photo in listPhotos %}
+            {% if photo.Valid == false %}
+                <span class="badge bg-warning">En attente de validation</span>
+            {% else %}
+                <span class="badge bg-success">Validée</span>
+            {% endif %}
             <div class="card photo-card w-100">
                 <img src="{{ asset('assets/upload/book_photo/' ~ photo.imageName) }}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    {% if photo.Valid == false %}
-                        <span class="badge bg-warning">En attente de validation</span>
-                        {% else %}
-                        <span class="badge bg-success">Validée</span>
-                    {% endif %}
                     <a href="#" class="btn btn-danger">Supprimer</a>
                 </div>
             </div>

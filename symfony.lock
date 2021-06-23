@@ -1,4 +1,7 @@
 {
+    "composer/ca-bundle": {
+        "version": "1.2.10"
+    },
     "composer/package-versions-deprecated": {
         "version": "1.11.99.1"
     },
@@ -109,6 +112,21 @@
             "config/packages/fos_ckeditor.yaml"
         ]
     },
+    "geoip2/geoip2": {
+        "version": "v2.11.0"
+    },
+    "gpslab/geoip2": {
+        "version": "2.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes-contrib",
+            "branch": "master",
+            "version": "2.0",
+            "ref": "53d2ed1e0f747555711cdc3573a5a9cbc9ddcf19"
+        },
+        "files": [
+            "config/packages/gpslab_geoip.yaml"
+        ]
+    },
     "jms/metadata": {
         "version": "2.5.0"
     },
@@ -120,6 +138,12 @@
     },
     "laminas/laminas-zendframework-bridge": {
         "version": "1.2.0"
+    },
+    "maxmind-db/reader": {
+        "version": "v1.10.1"
+    },
+    "maxmind/web-service-common": {
+        "version": "v0.8.1"
     },
     "monolog/monolog": {
         "version": "2.2.0"

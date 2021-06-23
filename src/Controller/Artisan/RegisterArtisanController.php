@@ -18,7 +18,7 @@ class RegisterArtisanController extends AbstractController
      * @param UserService $userService
      * @param EntityManagerInterface $entityManager
      * @return Response
-     * @Route("/artisanregister", name="register_artisan")
+     * @Route("/register/artisan", name="register_artisan")
      */
     public function index(Request $request, UserService $userService, EntityManagerInterface $entityManager): Response
     {
@@ -28,6 +28,11 @@ class RegisterArtisanController extends AbstractController
         }
 
         $user = $userService->getUserByUsername($this->getUser()->getUsername());
+
+        if($user->getArtisans() !== null){
+            return $this->redirectToRoute("home");
+        }
+
         $artisan = new Artisan();
         $artisan_form = $this->createForm(RegisterArtisanType::class, $artisan);
         $artisan_form->handleRequest($request);
