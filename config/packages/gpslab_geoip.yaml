@@ -8,5 +8,3 @@ gpslab_geoip:
     edition: 'GeoLite2-City'
 
     locales: [ 'fr', 'en' ]
-
-    url: 'http://localhost:8000/GeoLite2-City_20210615.tar.gz'

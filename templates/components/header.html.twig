@@ -12,7 +12,8 @@
                         <ul>
                             <li><a href=""><i class="fi-rr-id-badge"></i>Mon compte</a></li>
                             {% for artisan in app.user.getArtisans %}
-                            <li><a href="{{ path('artisan_general_settings',{'id':artisan.id}) }}"><i class="fi-rr-barber-shop"></i> Paramètres de <strong>{{ artisan.vitrineName }}</strong></a></li>
+                                <li><a href="{{ path('show_artisan',{'id':artisan.id}) }}"><i class="fi-rr-apps"></i>Ma vitrine <strong>{{ artisan.vitrineName }}</strong></a></li>
+                                <li><a href="{{ path('artisan_general_settings',{'id':artisan.id}) }}"><i class="fi-rr-barber-shop"></i> Paramètres de <strong>{{ artisan.vitrineName }}</strong></a></li>
                             {% endfor %}
                             <li><a href="{{ path('app_logout') }}"><i class="fi-rr-power"></i>Déconnexion</a></li>
                         </ul>

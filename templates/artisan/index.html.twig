@@ -29,10 +29,6 @@
                 <p>{{ artisan.vitrineDesc }}</p>
                 <div class="artisan-taglist">
                     <span>{{ artisan.category.name }}</span>
-                    <span>Je sais pas</span>
-                    <span>Heyissssssss</span>
-                    <span>Un autre tag on sait jamais</span>
-                    <span>Salut coucou</span>
                 </div>
             </div>
         </div>
@@ -44,15 +40,33 @@
     <div class="artisan-container--rightpart">
 
         <div class="user-actions-list">
-            <button class="user-artisans-actions">Something</button>
-            <button class="user-artisans-actions">Something</button>
-            <button class="user-artisans-actions">Something</button>
+            <button class="user-artisans-actions"><i class="fi-rr-user-time"></i> Prendre rendez-vous</button>
+            <button class="user-artisans-actions"><i class="fi-rr-list-check"></i> Voir les prestations et les prix</button>
         </div>
 
         <h1 style="margin-top: 30px;">Contact</h1>
         <div class="contact-artisan">
-                <span><i class="fi-rr-envelope"></i> <a href="mailto:{{ artisan.user.username }}">{{ artisan.user.username }}</a> </span>
-                <span><i class="fi-rr-smartphone"></i> {{ artisan.phoneNumber }}</span>
+
+            <div class="proaddress-infos--box bdr-10 w-100">
+                <div class="box-content">
+                    <div class="rounded-bgr-icon primary">
+                        <i class="fi-rr-envelope"></i>
+                    </div>
+                    <span style="color: #A6DCEF">Adresse mail :</span>
+                    <span style="color: #A6DCEF">{{ artisan.user.username }}</span>
+                </div>
+            </div>
+
+            <div class="proaddress-infos--box bdr-10 w-100">
+                <div class="box-content">
+                    <div class="rounded-bgr-icon primary">
+                        <i class="fi-rr-smartphone"></i>
+                    </div>
+                    <span style="color: #A6DCEF">Téléphone :</span>
+                    <span style="color: #A6DCEF">{{ artisan.phoneNumber }}</span>
+                </div>
+            </div>
+
         </div>
 
     </div>
@@ -60,11 +74,73 @@
 
     </div>
 
+
+
     <h1 style="margin-top: 30px">Localisation et périmètre d'activité</h1>
-    <div onload="initialize()" id="map" style="width: 100%; height: 480px;" data-can-move="{{ artisan.canMove }}" data-activity-perimeter="{{ artisan.activityPerimeter }}"></div>
+
+    <div class="proaddress-infos w-100">
+
+        {% if artisan.atHome %}
+
+            <div class="proaddress-infos--box w-49 bdr-10">
+                <div class="box-content">
+                    <div class="rounded-bgr-icon success">
+                        <i class="fi-rr-check"></i>
+                    </div>
+                    <span style="color: #71e5ad">Le prestataire exerce à domicile</span>
+                </div>
+            </div>
+
+        {% else %}
+
+            <div class="proaddress-infos--box w-49 bdr-10">
+                <div class="box-content">
+                    <div class="rounded-bgr-icon danger">
+                        <i class="fi-rr-cross-small"></i>
+                    </div>
+                    <span style="color: #ec7373">Le prestataire n'exerce pas à domicile</span>
+                </div>
+            </div>
+
+        {% endif %}
+
+
+        {% if artisan.canMove %}
+
+            <div class="proaddress-infos--box w-49 bdr-10">
+                <div class="box-content">
+                    <div class="rounded-bgr-icon success">
+                        <i class="fi-rr-check"></i>
+                    </div>
+                    <span style="color: #71e5ad">Le prestataire peut se déplacer à : {{ artisan.activityPerimeter }} km</span>
+                </div>
+            </div>
+
+        {% else %}
+
+            <div class="proaddress-infos--box w-49 bdr-10">
+                <div class="box-content">
+                    <div class="rounded-bgr-icon danger">
+                        <i class="fi-rr-cross-small"></i>
+                    </div>
+                    <span style="color: #ec7373">Le prestataire ne se déplace pas</span>
+                </div>
+            </div>
+
+        {% endif %}
+
+
+
+
+
+    </div>
+    <div onload="initialize()" id="map" style="width: 100%; height: 480px; margin-top: 50px" data-can-move="{{ artisan.canMove }}" data-activity-perimeter="{{ artisan.activityPerimeter }}"></div>
     <div id="floating-panel">
         <input id="address" type="textbox" value="{{ artisan.adressePro }}" hidden>
     </div>
+
+
+
 
     <h1 style="margin-top: 30px">Book photo</h1>
     <div class="book-photo">
