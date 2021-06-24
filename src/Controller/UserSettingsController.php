@@ -34,17 +34,21 @@ class UserSettingsController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            $image = $form->get('imageName')->getData();
-            $file = md5(uniqid()).'.'.$image->guessExtension();
-            $image->move($this->getParameter('profile_pics'), $file);
+            if($form->get('imageName')->getData() !== null) {
 
-            $settings->setImageName($file);
-            $settings->setUpdatedAt(new \DateTime("now"));
+                $image = $form->get('imageName')->getData();
+                $file = md5(uniqid()) . '.' . $image->guessExtension();
+                $image->move($this->getParameter('profile_pics'), $file);
 
-            $entityManager->persist($settings);
-            $entityManager->flush();
+                $settings->setImageName($file);
+                $settings->setUpdatedAt(new \DateTime("now"));
 
-            return $this->redirectToRoute("user_settings");
+                $entityManager->persist($settings);
+                $entityManager->flush();
+
+                $this->addFlash('success', 'Vos paramètres ont bien été modifiés.');
+
+            }
 
         }
 
