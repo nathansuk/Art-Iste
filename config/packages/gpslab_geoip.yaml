@@ -8,3 +8,4 @@ gpslab_geoip:
     edition: 'GeoLite2-City'
 
     locales: [ 'fr', 'en' ]
+
