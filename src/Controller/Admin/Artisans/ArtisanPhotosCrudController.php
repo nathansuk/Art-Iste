@@ -34,7 +34,6 @@ class ArtisanPhotosCrudController extends AbstractCrudController
 
     public function configureActions(Actions $actions): Actions
     {
-        // this action executes the 'renderInvoice()' method of the current CRUD controller
         $validPhoto = Action::new('validPhoto',
             'Valider la photo',
             'fas fa-check-square')
@@ -61,7 +60,8 @@ class ArtisanPhotosCrudController extends AbstractCrudController
             });
     }
 
-    public function validPhoto(AdminContext $context){
+    public function validPhoto(AdminContext $context): RedirectResponse
+    {
 
         $id = $context->getRequest()->query->get('entityId');
         $photo = $this->getDoctrine()->getRepository(ArtisanPhotos::class)->find($id);
@@ -77,7 +77,7 @@ class ArtisanPhotosCrudController extends AbstractCrudController
     public function seePhoto(AdminContext $context){
         $id = $context->getRequest()->query->get('entityId');
         $photo = $this->getDoctrine()->getRepository(ArtisanPhotos::class)->find($id);
-        return new RedirectResponse('http://localhost:8000/assets/upload/book_photo/'. $photo->getImageName());
+        return new RedirectResponse('/assets/upload/book_photo/'. $photo->getImageName());
     }
 
 }

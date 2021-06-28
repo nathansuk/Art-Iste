@@ -79,10 +79,9 @@
     <h1 style="margin-top: 30px">Localisation et périmètre d'activité</h1>
 
     <div class="proaddress-infos w-100">
-
+        <div style="display: flex; flex-direction: column; width: 49%;">
         {% if artisan.atHome %}
-
-            <div class="proaddress-infos--box w-49 bdr-10">
+            <div class="proaddress-infos--box w-100 bdr-10">
                 <div class="box-content">
                     <div class="rounded-bgr-icon success">
                         <i class="fi-rr-check"></i>
@@ -90,10 +89,8 @@
                     <span style="color: #71e5ad">Le prestataire exerce à domicile</span>
                 </div>
             </div>
-
         {% else %}
-
-            <div class="proaddress-infos--box w-49 bdr-10">
+            <div class="proaddress-infos--box w-100 bdr-10">
                 <div class="box-content">
                     <div class="rounded-bgr-icon danger">
                         <i class="fi-rr-cross-small"></i>
@@ -101,13 +98,9 @@
                     <span style="color: #ec7373">Le prestataire n'exerce pas à domicile</span>
                 </div>
             </div>
-
         {% endif %}
-
-
         {% if artisan.canMove %}
-
-            <div class="proaddress-infos--box w-49 bdr-10">
+            <div class="proaddress-infos--box w-100 bdr-10">
                 <div class="box-content">
                     <div class="rounded-bgr-icon success">
                         <i class="fi-rr-check"></i>
@@ -115,10 +108,8 @@
                     <span style="color: #71e5ad">Le prestataire peut se déplacer à : {{ artisan.activityPerimeter }} km</span>
                 </div>
             </div>
-
         {% else %}
-
-            <div class="proaddress-infos--box w-49 bdr-10">
+            <div class="proaddress-infos--box w-100 bdr-10">
                 <div class="box-content">
                     <div class="rounded-bgr-icon danger">
                         <i class="fi-rr-cross-small"></i>
@@ -126,18 +117,14 @@
                     <span style="color: #ec7373">Le prestataire ne se déplace pas</span>
                 </div>
             </div>
-
         {% endif %}
-
-
-
-
-
+        </div>
+        <div onload="initialize()" id="map" style="width: 50%; height: 300px; border-radius: 10px" data-can-move="{{ artisan.canMove }}" data-activity-perimeter="{{ artisan.activityPerimeter }}"></div>
+        <div id="floating-panel">
+            <input id="address" type="textbox" value="{{ artisan.adressePro }}" hidden>
+        </div>
     </div>
-    <div onload="initialize()" id="map" style="width: 100%; height: 480px; margin-top: 50px" data-can-move="{{ artisan.canMove }}" data-activity-perimeter="{{ artisan.activityPerimeter }}"></div>
-    <div id="floating-panel">
-        <input id="address" type="textbox" value="{{ artisan.adressePro }}" hidden>
-    </div>
+
 
 
 
@@ -171,7 +158,7 @@
             geocoder = new google.maps.Geocoder();
             var latlng = new google.maps.LatLng(-34.397, 150.644);
             var mapOptions = {
-                zoom: 12,
+                zoom: 10,
                 center: latlng
             }
             map = new google.maps.Map(document.getElementById('map'), mapOptions);

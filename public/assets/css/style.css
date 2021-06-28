@@ -498,8 +498,10 @@ button:hover {
 .login-container .login-container--leftimage {
   width: 25%;
   height: 100%;
-  background-image: url("https://media.lesechos.com/api/v1/images/view/5f3be7d43e454657c479ef0b/1280x720/0603555103958-web-tete.jpg");
+  background-image: url("https://media.lesechos.com/api/v1/images/view/5cb5c1963e454635a24843af/1280x720/2094708-les-inegalites-homme-femme-chez-le-coiffeur-au-peigne-fin-171045-1.jpg");
   background-attachment: fixed;
+  background-size: cover;
+  background-position-x: -800px;
 }
 .login-container .login-container--leftimage a {
   margin-left: 50px;
@@ -538,7 +540,7 @@ button:hover {
   color: #b5b5b5;
 }
 .login-container .login-container--right form button {
-  background-color: #3498db;
+  background-color: #333943;
   color: white;
   font-weight: 600;
   border-radius: 20px;
@@ -718,10 +720,6 @@ button:hover {
   margin-bottom: 10px;
 }
 
-.w-49 {
-  width: 49%;
-}
-
 .proaddress-infos--box {
   height: 150px;
   text-align: center;
@@ -875,6 +873,25 @@ button:hover {
   background-color: red;
   margin-left: 20px;
   margin-top: 20px;
+}
+
+.pagepro--top {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+.pagepro--top a {
+  background-color: white;
+  color: black;
+  padding: 20px;
+  transition: 0.2s ease-in-out;
+  margin-bottom: 15px;
+  font-weight: 600;
+  box-sizing: border-box;
+}
+.pagepro--top a:hover {
+  transition: 0.2s ease-in-out;
+  padding-left: 30px;
 }
 
 /*# sourceMappingURL=style.css.map */

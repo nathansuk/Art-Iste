@@ -10,7 +10,7 @@ class InfoProController extends AbstractController
 {
     /**
      * @return Response
-     * @Route("/info-pro", name="info_pro")
+     * @Route("/professionnel", name="info_pro")
      */
     public function index(): Response
     {

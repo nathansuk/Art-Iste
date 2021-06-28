@@ -1,14 +1,99 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ site_name }} : {{ controller_name }}{% endblock %}
+{% block title %}{{ site_name }} :  {{ controller_name }}{% endblock %}
 
 {% block body %}
+
     <div class="page-top w-100">
         <div class="page-top--leftimage"></div>
         <div class="page-top--content">
-            <h1>Professionnel ?</h1>
-            <span>Découvrez les avantages d'{{ site_name }} ! </span>
+            <h1>Vous êtes un professionnel ?</h1>
+            <span>Art-Iste vous propose une solution gratuite et complète !</span>
+            <div style="display: flex; flex-direction: column" class="pagepro--top">
+            <a href="{{ path('register_artisan') }}">S'inscrire en tant que professionnel</a>
+            <a href="#infos-solutions" style="background: none; color: white; border: 2px solid white">Découvrir notre offre</a>
+            </div>
         </div>
     </div>
 
+    <div class="home-infos w-100">
+
+        <div class="infos-solutions" id="infos-solutions">
+            <h1 class="block-title" style="text-align: center; margin-bottom: 50px">Une solution pour les particuliers et les professionnels</h1>
+            <div class="solutions-content no-bgr w-100">
+
+                <div class="solutions-content--image">
+                    <img src="https://www.sortiraparis.com/images/80/88384/609379-deconfinement-la-reouverture-des-coiffeurs-autour-du-1er-decembre.jpg" alt="infos">
+                </div>
+
+                <div class="solutions-content--right">
+                    <div class="solutions-content--infos">
+                        <h1>Une solution gratuite</h1>
+                        <p>Chez Artiste c’est GRATUIT. Nous voulons permettre aux professionnels indépendants d’être reconnus et davantage mis en avant. Des options payantes pourront être disponibles mais pas obligatoires.</p>
+                        <button class="btn btn-seemore">En savoir plus </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="solutions-content colored-bgr w-100">
+
+                <div class="solutions-content--right">
+                    <div class="solutions-content--infos" style="text-align: right; margin-right: 20px">
+                        <h1>Pourquoi se créer une page Internet ?</h1>
+                        <p>Pour mettre en avant votre savoir-faire. En indiquant vos prestations, vos tarifs et en partageant votre book photos, vous suscitez l’envie de vous découvrir et d’attirer de nouveaux clients autour de chez vous.</p>
+                        <button class="btn btn-seemore">En savoir plus</button>
+                    </div>
+                </div>
+
+                <div class="solutions-content--image w-bgr" style="margin-top: 50px; margin-left: 20px">
+                    <img src="https://res.cloudinary.com/wavy/image/upload/v1607423902/pyt.jpg" alt="infos">
+                </div>
+            </div>
+
+            <div class="solutions-content no-bgr w-100">
+
+                <div class="solutions-content--image">
+                    <img src="https://res.cloudinary.com/wavy/image/upload/v1607423902/pyt.jpg" alt="infos">
+                </div>
+
+                <div class="solutions-content--right">
+                    <div class="solutions-content--infos">
+                        <h1>Les avantages</h1>
+                        <p>En créant votre page, vous obtiendrez un meilleur référencement au niveau local et une plus grande visibilité grâce au partage de celle-ci sur vos réseaux sociaux et de votre présence sur notre site Artiste.</p>
+                        <button class="btn btn-seemore">En savoir plus </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="page-top biginfo w-100">
+        <div class="biginfo--content">
+            <img src="/assets/images/cartefrance.png" alt="Carte de France">
+            <div class="buginfo--content-right bdr-10">
+                <h1>Des artisans partout en France</h1>
+                <span>Recherchez votre ville pour voir les pages des artisans disponibles autour de vous.</span>
+                <div class="form-content">
+                    <input type="text" class="search-city bdr-10" placeholder="Chercher une ville...">
+                    <button type="submit" class="btn btn-searchcity">Rechercher</button>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
+
+{% block javascripts %}
+    <script>
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+{% endblock %}
+

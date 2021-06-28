@@ -103,7 +103,7 @@ class ArtisanSettingsController extends AbstractController
                 $photo
                     ->setArtisan($artisan)
                     ->setImageName($file)
-                    ->setValid(false);
+                    ->setValid(true);
 
 
             $entityManager->persist($photo);

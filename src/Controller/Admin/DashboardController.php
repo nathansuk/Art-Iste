@@ -13,6 +13,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
+use EasyCorp\Bundle\EasyAdminBundle\Config\UserMenu;
 
 class DashboardController extends AbstractDashboardController
 {
@@ -45,5 +47,13 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Métiers', 'fas fa-air-freshener', ArtisansJob::class);
         yield MenuItem::linkToCrud('Artisans', 'fas fa-users', Artisan::class);
         yield MenuItem::linkToCrud('Photos', 'fas fa-images', ArtisanPhotos::class);
+    }
+
+    public function configureUserMenu(UserInterface $user): UserMenu
+    {
+        return parent::configureUserMenu($user)
+            ->addMenuItems([
+                MenuItem::linkToRoute('Retourner sur le site', 'fas fa-arrow-circle-left', 'home'),
+            ]);
     }
 }
