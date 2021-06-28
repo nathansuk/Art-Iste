@@ -1,31 +1,102 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ArtisanSearchController!{% endblock %}
+{% block title %}{{ site_name }} : {{ controller_name }}{% endblock %}
 
 {% block body %}
 
-    <div class="page-content">
+        <div class="searchpage-content w-100">
 
-        <div class="searchpage-content">
+            <div class="searchpage-content--list">
+                {% if results %}
+                    {% for artisan in results %}
+                        <div class="search-artisanbox">
+                            <div class="artisansbox-coverimage bdr-10" style="background-image: url({{ asset('assets/upload/artisans/covertest.jpeg') }}); height: 150px"></div>
+                                <div class="artisanbox-info">
+                                <h2>{{ artisan.vitrineName }} - <span class="artisan-location">{{ artisan.zipCode }}</span></h2>
+                            </div>
+                        </div>
 
-    {% if results %}
-
-        {% for artisan in results %}
-            <div class="search-artisanbox">
-
-                <div class="artisansbox-coverimage bdr-10" style="background-image: url({{ asset('assets/upload/artisans/covertest.jpeg') }}); height: 150px"></div>
-
-                <div class="artisanbox-info">
-                    <h2>{{ artisan.vitrineName }}</h2>
-                </div>
-
+                        <div class="address" data-address="{{ artisan.adressePro }}"></div>
+                    {% endfor %}
+                {% endif %}
             </div>
-        {% endfor %}
 
-    {% endif %}
+            <div class="searchpage-content--map bdr-10">
+                <div onload="initialize()" id="map" style="width: 100%; height: 100%;"></div>
+            </div>
 
         </div>
 
-    </div>
+{% endblock %}
+
+{% block javascripts %}
+
+
+        <script src="https://maps.googleapis.com/maps/api/js?key={{ google_api_key }}&callback=initialize&libraries=&v=weekly" async></script>
+
+        <script>
+            let geocoder;
+            let map;
+
+            function initialize() {
+                geocoder = new google.maps.Geocoder();
+                var latlng = new google.maps.LatLng(-34.397, 150.644);
+                var mapOptions = {
+                    zoom: 10,
+                    center: latlng
+                }
+                map = new google.maps.Map(document.getElementById('map'), mapOptions);
+                codeAddress();
+                geoCodeCity(getCityParameter());
+            }
+
+
+            function codeAddress() {
+                let addressList = []
+                let address = document.getElementsByClassName("address");
+
+                [].forEach.call(address, function (el) {
+                    addressList.push(el.dataset.address);
+                });
+
+                addressList.forEach(geoCodeArtisanAddress)
+
+                function geoCodeArtisanAddress(item) {
+                    geocoder.geocode( { 'address': item}, function(results, status) {
+                        if (status === 'OK') {
+                            let marker = new google.maps.Marker({
+                                map: map,
+                                position: results[0].geometry.location
+                            });
+                        } else {
+                            alert('Geocode was not successful for the following reason: ' + status);
+                        }
+                    });
+                }
+
+            }
+
+            function getCityParameter() {
+               let url = new URL(window.location.href);
+               let cityUrl = url.searchParams.get('city');
+
+               return cityUrl;
+            }
+
+            function geoCodeCity(city){
+                geocoder.geocode( { 'address': city}, function(results, status) {
+                    if (status === 'OK') {
+                        map.setCenter(results[0].geometry.location);
+                    } else {
+                        alert('Geocode was not successful for the following reason: ' + status);
+                    }
+                });
+            }
+
+
+        </script>
+
+
+
 
 {% endblock %}

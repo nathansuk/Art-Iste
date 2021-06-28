@@ -823,9 +823,21 @@ button:hover {
 
 .searchpage-content {
   display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+  padding-left: 50px;
+  padding-right: 50px;
+  box-sizing: border-box;
+  height: 100vh;
+  overflow: hidden;
+}
+.searchpage-content .searchpage-content--list {
+  width: 60%;
+  height: auto;
+  display: flex;
   flex-direction: column;
-  flex-flow: row wrap;
-  margin-top: 50px;
+  margin-top: 20px;
+  overflow: scroll;
 }
 
 .search-artisanbox {
@@ -833,6 +845,15 @@ button:hover {
   flex-direction: column;
   height: 300px;
   width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0), 0 15px 12px rgba(0, 0, 0, 0.12);
+  margin-bottom: 30px;
+  transition: 0.2s ease-in-out;
+}
+.search-artisanbox:hover {
+  transition: 0.2s ease-in-out;
+  transform: scale(1.01);
+  cursor: pointer;
 }
 
 .artisansbox-coverimage {
@@ -840,6 +861,20 @@ button:hover {
   width: 100%;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.artisanbox-info {
+  margin-top: 20px;
+  padding-left: 15px;
+  padding-right: 10px;
+}
+
+.searchpage-content--map {
+  width: 40%;
+  height: 80%;
+  background-color: red;
+  margin-left: 20px;
+  margin-top: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */

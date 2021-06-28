@@ -35,7 +35,7 @@ class ArtisanSearchController extends AbstractController
 
 
         return $this->render('artisan_search/index.html.twig', [
-            'controller_name' => 'ArtisanSearchController',
+            'controller_name' => 'Résultats de votre recherche',
             'results' => $results
         ]);
     }
