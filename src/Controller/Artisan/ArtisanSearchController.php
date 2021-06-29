@@ -11,6 +11,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class ArtisanSearchController extends AbstractController
 {
     /**
+     * @param Request $request
      * @return Response
      * @Route("/search", name="artisan_search")
      */
@@ -18,21 +19,23 @@ class ArtisanSearchController extends AbstractController
     {
         $category = $request->query->get('category');
         $city = $request->query->get('city');
+        $atArtisansHome = $request->query->get('atHome');
 
-        if($category && !$city){
-
-            $results = $this->getDoctrine()->getRepository(Artisan::class)->findBy(['category' => $category]);
-
+        if($category && $city && $atArtisansHome == 1) {
+            $results = $this->getDoctrine()->getRepository(Artisan::class)->findBy([
+                'category' => $category,
+                'city' => $city,
+                'atHome' => true
+            ]);
         }
 
-        if($category && $city){
-
-            $results = $this->getDoctrine()->getRepository(Artisan::class)->findBy(['category' => $category, 'city' => $city]);
-
+        if($category && $city && $atArtisansHome == 0) {
+            $results = $this->getDoctrine()->getRepository(Artisan::class)->findBy([
+                'category' => $category,
+                'city' => $city,
+                'canMove' => true
+            ]);
         }
-
-
-
 
         return $this->render('artisan_search/index.html.twig', [
             'controller_name' => 'Résultats de votre recherche',

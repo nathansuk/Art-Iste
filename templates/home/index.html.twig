@@ -10,13 +10,18 @@
             <h1>Découvrez les artisans proches de chez-vous</h1>
             <span>Chacun a son savoir faire, sur {{ site_name }} vous trouverez celui qui vous correspond</span>
             <form action="/search" class="bdr-10">
-                <select name="category" id="category-select">
+                <select name="category" id="category-select" required>
                     <option value="">Métier</option>
                     {% for category in categories %}
                         <option value="{{ category.id }}">{{ category.name }}</option>
                     {% endfor %}
                 </select>
                 <input type="text" name="city" placeholder="Ville" required>
+                <select name="atHome" id="category-select" required>
+                        <option value="">Chez-vous / Chez l'artisan</option>
+                        <option value="1">Chez moi</option>
+                        <option value="0">Chez l'artisan</option>
+                </select>
                 <button type="submit" class="bdr-10">Rechercher</button>
             </form>
         </div>
@@ -45,37 +50,37 @@
     <div class="home-user-info">
 
         <div class="user-info-box">
-            <img src="https://www.art-iste.com/wp-content/uploads/2020/05/80x80-6-100x100.png" alt="Icone">
+            <i class="fi-rr-barber-shop"></i>
             <h3>Recherchez</h3>
             <span>Sélectionnez un ou plusieurs artisans selon <strong>vos critères</strong> et mémorisez vos recherches.</span>
         </div>
 
         <div class="user-info-box">
-            <img src="https://www.art-iste.com/wp-content/uploads/2020/05/80x80-2-100x100.png" alt="Icone">
+            <i class="fi-rr-marker-time"></i>
             <h3>Réservez</h3>
             <span>À domicile ou chez l’artisan , pour une personne ou plusieurs, <strong>gagnez du temps</strong> dans votre quotidien.</span>
         </div>
 
         <div class="user-info-box">
-            <img src="https://www.art-iste.com/wp-content/uploads/2020/05/Ma-page-cr%C3%A9ation-100x100.png" alt="Icone">
+            <i class="fi-rr-pencil"></i>
             <h3>Evaluez</h3>
             <span><strong>Evaluez et commentez</strong> la prestation du professionnel afin d’enrichir la communauté.</span>
         </div>
 
         <div class="user-info-box">
-            <img src="https://www.art-iste.com/wp-content/uploads/2020/05/80x80-5-3-100x100.png" alt="Icone">
+            <i class="fi-rr-euro"></i>
             <h3>Les tarifs</h3>
             <span>Pas de surprise, les tarifs de chaque professionnel sont affichés. Paiement au professionnel <strong>en direct.</strong></span>
         </div>
 
         <div class="user-info-box">
-            <img src="https://www.art-iste.com/wp-content/uploads/2020/05/80x80-4-1-100x100.png" alt="Icone">
+            <i class="fi-rr-crown"></i>
             <h3>Favoris</h3>
             <span>Ajoutez vos artisans préférés à la liste de vos favoris et retrouvez les <strong>en un clic</strong> depuis votre compte client.</span>
         </div>
 
         <div class="user-info-box">
-            <img src="https://www.art-iste.com/wp-content/uploads/2020/05/80x80-3-1-100x100.png" alt="Icone">
+            <i class="fi-rr-time-twenty-four"></i>
             <h3>24h/7j</h3>
             <span>Comme vos envies n'ont pas d’heures. Envoyez votre demande de rendez-vous <strong>quand vous en avez envie.</strong></span>
         </div>
@@ -90,7 +95,7 @@
         <div class="biginfo--content">
             <h1>Vous êtes un professionnel ?</h1>
             <span>En créant votre page sur Art-iste, vous obtiendrez un meilleur référencement au niveau local et une plus grande visibilité grâce au partage de celle-ci sur vos réseaux sociaux et de votre présence sur notre site.</span>
-            <a href="{{ path('info_pro') }}">Découvrir l'offre</a>
+            <a class="bdr-10" href="{{ path('info_pro') }}">Découvrir l'offre</a>
         </div>
     </div>
 

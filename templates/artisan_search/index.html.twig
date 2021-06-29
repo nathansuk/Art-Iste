@@ -9,10 +9,18 @@
             <div class="searchpage-content--list">
                 {% if results %}
                     {% for artisan in results %}
-                        <div class="search-artisanbox">
-                            <div class="artisansbox-coverimage bdr-10" style="background-image: url({{ asset('assets/upload/artisans/covertest.jpeg') }}); height: 150px"></div>
+                        <div class="search-artisanbox" onclick="location.href = '/artisan/{{ artisan.id }}'">
+                            <div class="artisansbox-coverimage bdr-10" style="background-image: url({{ asset('assets/upload/artisans/' ~ artisan.coverName) }}); height: 150px"></div>
                                 <div class="artisanbox-info">
                                 <h2>{{ artisan.vitrineName }} - <span class="artisan-location">{{ artisan.zipCode }}</span></h2>
+                                    <div class="artisan-box--taglist">
+                                        {% if artisan.canMove %}
+                                            <span><i class="fi-rr-check"></i> Se déplace</span>
+                                            <span>Déplacement jusqu'à {{ artisan.activityPerimeter }} km</span>
+                                        {% else %}
+                                            <span><i class="fi-rr-check"></i> Uniquement chez l'artisan</span>
+                                        {% endif %}
+                                    </div>
                             </div>
                         </div>
 

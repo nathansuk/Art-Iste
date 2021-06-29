@@ -15,7 +15,7 @@ class InfoProController extends AbstractController
     public function index(): Response
     {
         return $this->render('info_pro/index.html.twig', [
-            'controller_name' => 'InfoProController',
+            'controller_name' => 'Solution pour professionnels',
         ]);
     }
 }
