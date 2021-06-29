@@ -11,12 +11,12 @@
             <span>Chacun a son savoir faire, sur {{ site_name }} vous trouverez celui qui vous correspond</span>
             <form action="/search" class="bdr-10">
                 <select name="category" id="category-select">
-                    <option value="">Catégorie</option>
+                    <option value="">Métier</option>
                     {% for category in categories %}
                         <option value="{{ category.id }}">{{ category.name }}</option>
                     {% endfor %}
                 </select>
-                <input type="text" name="city" placeholder="Ville">
+                <input type="text" name="city" placeholder="Ville" required>
                 <button type="submit" class="bdr-10">Rechercher</button>
             </form>
         </div>
@@ -40,81 +40,57 @@
         </div>
     </div>
 
-    <div class="home-infos w-100">
-        <div class="infos-solutions">
-        <h1 class="block-title" style="text-align: center; margin-bottom: 50px">Une solution pour les particuliers et professionnels</h1>
-            <div class="solutions-content no-bgr w-100">
+    <div class="page-content">
 
-                <div class="solutions-content--image">
-                    <img src="https://www.sortiraparis.com/images/80/88384/609379-deconfinement-la-reouverture-des-coiffeurs-autour-du-1er-decembre.jpg" alt="infos">
-                </div>
+    <div class="home-user-info">
 
-                <div class="solutions-content--right">
-                    <div class="solutions-content--infos">
-                        <h1>Une solution gratuite</h1>
-                        <p>Chez Artiste c’est GRATUIT. Nous voulons permettre aux professionnels indépendants d’être reconnus et davantage mis en avant. Des options payantes pourront être disponibles mais pas obligatoires.</p>
-                        <button class="btn btn-seemore">En savoir plus </button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="solutions-content colored-bgr w-100">
-
-                <div class="solutions-content--right">
-                    <div class="solutions-content--infos" style="text-align: right; margin-right: 20px">
-                        <h1>Pourquoi se créer une page Internet ?</h1>
-                        <p>Pour mettre en avant votre savoir-faire. En indiquant vos prestations, vos tarifs et en partageant votre book photos, vous suscitez l’envie de vous découvrir et d’attirer de nouveaux clients autour de chez vous.</p>
-                        <button class="btn btn-seemore">En savoir plus</button>
-                    </div>
-                </div>
-
-                <div class="solutions-content--image w-bgr" style="margin-top: 50px; margin-left: 20px">
-                    <img src="https://res.cloudinary.com/wavy/image/upload/v1607423902/pyt.jpg" alt="infos">
-                </div>
-            </div>
-
-            <div class="solutions-content no-bgr w-100">
-
-                <div class="solutions-content--image">
-                    <img src="https://res.cloudinary.com/wavy/image/upload/v1607423902/pyt.jpg" alt="infos">
-                </div>
-
-                <div class="solutions-content--right">
-                    <div class="solutions-content--infos">
-                        <h1>Les avantages</h1>
-                        <p>En créant votre page, vous obtiendrez un meilleur référencement au niveau local et une plus grande visibilité grâce au partage de celle-ci sur vos réseaux sociaux et de votre présence sur notre site Artiste.</p>
-                        <button class="btn btn-seemore">En savoir plus </button>
-                    </div>
-                </div>
-            </div>
+        <div class="user-info-box">
+            <img src="https://www.art-iste.com/wp-content/uploads/2020/05/80x80-6-100x100.png" alt="Icone">
+            <h3>Recherchez</h3>
+            <span>Sélectionnez un ou plusieurs artisans selon <strong>vos critères</strong> et mémorisez vos recherches.</span>
         </div>
 
-        <div class="monitor-numbers bdr-10">
-            <div class="monitor-numbers--content">
-                <div class="stats">
-                <h1>100 000</h1>
-                <span>utilisateurs sont inscrits</span>
-                </div>
-                    <hr>
-                <div class="stats">
-                <h1>30 000</h1>
-                <span>artisans nous font confiance</span>
-                </div>
-            </div>
+        <div class="user-info-box">
+            <img src="https://www.art-iste.com/wp-content/uploads/2020/05/80x80-2-100x100.png" alt="Icone">
+            <h3>Réservez</h3>
+            <span>À domicile ou chez l’artisan , pour une personne ou plusieurs, <strong>gagnez du temps</strong> dans votre quotidien.</span>
         </div>
+
+        <div class="user-info-box">
+            <img src="https://www.art-iste.com/wp-content/uploads/2020/05/Ma-page-cr%C3%A9ation-100x100.png" alt="Icone">
+            <h3>Evaluez</h3>
+            <span><strong>Evaluez et commentez</strong> la prestation du professionnel afin d’enrichir la communauté.</span>
+        </div>
+
+        <div class="user-info-box">
+            <img src="https://www.art-iste.com/wp-content/uploads/2020/05/80x80-5-3-100x100.png" alt="Icone">
+            <h3>Les tarifs</h3>
+            <span>Pas de surprise, les tarifs de chaque professionnel sont affichés. Paiement au professionnel <strong>en direct.</strong></span>
+        </div>
+
+        <div class="user-info-box">
+            <img src="https://www.art-iste.com/wp-content/uploads/2020/05/80x80-4-1-100x100.png" alt="Icone">
+            <h3>Favoris</h3>
+            <span>Ajoutez vos artisans préférés à la liste de vos favoris et retrouvez les <strong>en un clic</strong> depuis votre compte client.</span>
+        </div>
+
+        <div class="user-info-box">
+            <img src="https://www.art-iste.com/wp-content/uploads/2020/05/80x80-3-1-100x100.png" alt="Icone">
+            <h3>24h/7j</h3>
+            <span>Comme vos envies n'ont pas d’heures. Envoyez votre demande de rendez-vous <strong>quand vous en avez envie.</strong></span>
+        </div>
+
+
+
+    </div>
+
     </div>
 
     <div class="page-top biginfo w-100">
         <div class="biginfo--content">
-           <img src="/assets/images/cartefrance.png" alt="Carte de France">
-            <div class="buginfo--content-right bdr-10">
-                <h1>Des artisans partout en France</h1>
-                <span>Recherchez votre ville pour voir les pages des artisans disponibles autour de vous.</span>
-                <div class="form-content">
-                    <input type="text" class="search-city bdr-10" placeholder="Chercher une ville...">
-                    <button type="submit" class="btn btn-searchcity">Rechercher</button>
-                </div>
-            </div>
+            <h1>Vous êtes un professionnel ?</h1>
+            <span>En créant votre page sur Art-iste, vous obtiendrez un meilleur référencement au niveau local et une plus grande visibilité grâce au partage de celle-ci sur vos réseaux sociaux et de votre présence sur notre site.</span>
+            <a href="{{ path('info_pro') }}">Découvrir l'offre</a>
         </div>
     </div>
 

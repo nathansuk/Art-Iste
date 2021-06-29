@@ -198,7 +198,7 @@ button:hover {
   width: 30%;
   height: 100%;
   border-radius: 0 0 0 100%;
-  background-image: url("/assets/images/pagetopright.jpg");
+  background-image: url("https://www.art-iste.com/wp-content/uploads/2020/06/young-woman-surfing-laptop-in-kitchen-4049990-768x512.jpg");
   background-size: cover;
   position: relative;
   float: right;
@@ -242,6 +242,33 @@ button:hover {
   display: flex;
   flex-direction: column;
   margin: auto;
+}
+
+.home-user-info {
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+  margin-top: 60px;
+  margin-bottom: 80px;
+  justify-content: space-evenly;
+  flex: 1 1 auto;
+}
+.home-user-info .user-info-box {
+  width: 400px;
+  height: 250px;
+  background-color: white;
+  box-sizing: border-box;
+  padding: 15px;
+  text-align: center;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0), 0 15px 12px rgba(0, 0, 0, 0.1);
+}
+.home-user-info .user-info-box h3 {
+  font-weight: 600;
+}
+.home-user-info .user-info-box strong {
+  color: #dfb131;
 }
 
 .home-artisans-list {
@@ -415,20 +442,51 @@ button:hover {
   margin: 0 20px 0 20px;
 }
 
+.biginfo {
+  height: 700px;
+  background-image: url("https://wp-media.petersons.com/blog/wp-content/uploads/2017/12/10124335/glenn-carstens-peters-203007-unsplash.jpg");
+  background-size: cover;
+  box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.8);
+}
+
 .biginfo--content {
+  position: relative;
+  top: 20%;
   width: 80%;
   margin-top: 100px;
   margin-left: auto;
   margin-right: auto;
   display: flex;
-  flex-direction: row;
-  justify-content: space-around;
+  flex-direction: column;
+  text-align: center;
 }
 .biginfo--content h1 {
-  font-weight: 600;
+  font-weight: 800;
+  margin-bottom: 30px;
 }
 .biginfo--content span {
-  margin-bottom: 30px;
+  width: 700px;
+  margin: auto;
+}
+.biginfo--content a {
+  margin: auto;
+  width: 500px;
+  margin-top: 30px;
+  background-color: #dfb131;
+  padding: 30px;
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  transition: 0.2s ease-in-out;
+  box-sizing: border-box;
+}
+.biginfo--content a:hover {
+  cursor: pointer;
+  padding-left: 40px;
+  transition: 0.2s ease-in-out;
+}
+.biginfo--content a:focus {
+  outline: none;
 }
 .biginfo--content img {
   width: 500px;
@@ -498,7 +556,7 @@ button:hover {
 .login-container .login-container--leftimage {
   width: 25%;
   height: 100%;
-  background-image: url("https://media.lesechos.com/api/v1/images/view/5cb5c1963e454635a24843af/1280x720/2094708-les-inegalites-homme-femme-chez-le-coiffeur-au-peigne-fin-171045-1.jpg");
+  background-image: url("https://www.art-iste.com/wp-content/uploads/2020/05/Header-3-scaled.jpg");
   background-attachment: fixed;
   background-size: cover;
   background-position-x: -800px;
@@ -641,10 +699,38 @@ button:hover {
 .user-actions-list button {
   width: 100%;
   border-radius: 10px;
-  height: 50px;
+  height: 100px;
   margin-bottom: 15px;
   color: white;
   font-weight: 800;
+  font-size: 20px;
+  background-color: #333943;
+}
+.user-actions-list button:hover {
+  cursor: pointer;
+}
+.user-actions-list button i {
+  margin-right: 10px;
+}
+.user-actions-list .user-artisans-actions-gold {
+  background-color: #dfb131;
+}
+
+.prestation-list {
+  display: flex;
+  flex-direction: column;
+}
+.prestation-list .prestation-category {
+  width: 100%;
+  height: 80px;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0), 0 15px 12px rgba(0, 0, 0, 0.12);
+  box-sizing: border-box;
+  font-size: 20px;
+  font-weight: 600;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 30px;
 }
 
 .artisan-map {
