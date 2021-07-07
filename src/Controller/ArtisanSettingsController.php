@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Artisan;
 use App\Entity\ArtisanPhotos;
 use App\Form\ArtisanSettingsType;
 use App\Form\BookPhotoType;
@@ -145,6 +146,34 @@ class ArtisanSettingsController extends AbstractController
             'controller_name' => 'Mon book photo',
             'listPhotos' => $photos
         ]);
+
+    }
+
+
+    /**
+     * @Route("/deletephoto/{id}", name="delete_photo")
+     * @param int $id
+     * @param UserService $userService
+     * @param ArtisanService $artisanService
+     * @param EntityManagerInterface $entityManager
+     * @return Response
+     */
+    public function deletePhoto(int $id, UserService $userService, ArtisanService $artisanService, EntityManagerInterface $entityManager): Response {
+
+        $user = $userService->getUserByUsername($this->getUser()->getUsername());
+        $artisan = $this->getDoctrine()->getRepository(Artisan::class)->findOneBy(['user' => $user]);
+
+        if($artisan->getUser()->getId() !== $user->getId()){
+            return $this->redirectToRoute("home");
+        }
+
+        $artisanPhoto = $this->getDoctrine()->getRepository(ArtisanPhotos::class)->find($id);
+
+        $entityManager->remove($artisanPhoto);
+        $entityManager->flush();
+
+
+        return $this->redirectToRoute("home");
 
     }
 }

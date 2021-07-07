@@ -20,13 +20,10 @@ class ArtisanController extends AbstractController
 
         $artisan = $artisanService->getArtisanById($id);
 
-        if(!$artisan) {
+        if(!$artisan || !$artisan->getIsVerified()) {
             return $this->redirectToRoute("home");
         }
 
-        if(!$artisan->getIsVerified()) {
-            return $this->redirectToRoute("home");
-        }
 
 
         return $this->render('artisan/index.html.twig', [

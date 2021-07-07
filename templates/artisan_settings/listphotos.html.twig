@@ -13,7 +13,7 @@
             <div class="card photo-card w-100">
                 <img src="{{ asset('assets/upload/book_photo/' ~ photo.imageName) }}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <a href="#" class="btn btn-danger">Supprimer</a>
+                    <a href="{{ path('delete_photo',{'id': photo.id}) }}" class="btn btn-danger">Supprimer</a>
                 </div>
             </div>
         {% endfor %}

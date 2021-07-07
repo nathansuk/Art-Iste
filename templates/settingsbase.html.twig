@@ -33,24 +33,25 @@
 
             {% for artisan in app.user.getArtisans %}
 
-            <h4>Ma vitrine ({{ artisan.vitrineName }})</h4>
+            <h4 style="margin-bottom: 20px">Ma vitrine ({{ artisan.vitrineName }})</h4>
 
             <ul class="nav flex-column">
+
+                <h5>Paramètres généraux</h5>
 
                 <li class="nav-item">
                     <a class="nav-link active" href="{{ path('artisan_general_settings',{'id':artisan.id}) }}">Genéral</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Réservations</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="#">Statistiques</a>
                 </li>
+
+                <h5>Book photo </h5>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('book_add_photos',{'id': artisan.id}) }}">Ajouter une photo au book</a>
+                    <a class="nav-link" href="{{ path('book_add_photos',{'id': artisan.id}) }}">Ajouter une photo</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ path('list_book_photo',{'id': artisan.id}) }}">Mon book photo</a>
+                    <a class="nav-link" href="{{ path('list_book_photo',{'id': artisan.id}) }}">Voir mes photos</a>
                 </li>
             </ul>
 

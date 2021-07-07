@@ -5,10 +5,9 @@ namespace App\Controller\Security;
 
 
 use App\Entity\User;
-use App\Entity\UserSettings;
 use App\Form\RegisterType;
 use App\Security\LoginAuthenticator;
-use Doctrine\ORM\EntityManagerInterface;
+use App\Services\Users\UserService;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,17 +21,17 @@ class RegisterController extends AbstractController
     /**
      * @Route("/register", name="register")
      * @param Request $request
-     * @param EntityManagerInterface $entityManager
      * @param UserPasswordEncoderInterface $passwordEncoder
      * @param LoginAuthenticator $loginAuthenticator
+     * @param UserService $userService
      * @param GuardAuthenticatorHandler $guardAuthenticatorHandler
      * @return Response
      */
     public function registration(
         Request $request,
-        EntityManagerInterface $entityManager,
         UserPasswordEncoderInterface $passwordEncoder,
         LoginAuthenticator $loginAuthenticator,
+        UserService $userService,
         GuardAuthenticatorHandler $guardAuthenticatorHandler): Response {
 
         if ($this->getUser()) {
@@ -46,20 +45,12 @@ class RegisterController extends AbstractController
         if($register_form->isSubmitted() && $register_form->isValid()) {
 
                 $hash = $passwordEncoder->encodePassword($user, $user->getPassword());
-                $user->setPassword($hash)
-                    ->setRegisterDate(new \DateTime("now"))
-                    ->setRoles(["ROLE_USER"])
-                    ->setIsPro(false);
 
-                $settings = new UserSettings();
+                $userService
+                    ->registerUser($user, $hash);
 
-                $settings->setUser($user)
-                         ->setImageName('default.jpeg');
-
-                $entityManager->persist($user);
-                $entityManager->persist($settings);
-                $entityManager->flush();
-                $guardAuthenticatorHandler->authenticateUserAndHandleSuccess($user, $request, $loginAuthenticator, 'main');
+                $guardAuthenticatorHandler
+                    ->authenticateUserAndHandleSuccess($user, $request, $loginAuthenticator, 'main');
 
                 return $this->redirectToRoute('home');
         }
